@@ -1,0 +1,10 @@
+C:\Users\ahmed0mohsen\Desktop\Resturant\Resturant.DAL\obj\Debug\Resturant.DAL.csprojResolveAssemblyReference.cache
+C:\Users\ahmed0mohsen\Desktop\Resturant\Resturant.DAL\bin\Debug\Resturant.DAL.dll.config
+C:\Users\ahmed0mohsen\Desktop\Resturant\Resturant.DAL\bin\Debug\Resturant.DAL.dll
+C:\Users\ahmed0mohsen\Desktop\Resturant\Resturant.DAL\bin\Debug\Resturant.DAL.pdb
+C:\Users\ahmed0mohsen\Desktop\Resturant\Resturant.DAL\bin\Debug\EntityFramework.dll
+C:\Users\ahmed0mohsen\Desktop\Resturant\Resturant.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ahmed0mohsen\Desktop\Resturant\Resturant.DAL\bin\Debug\EntityFramework.xml
+C:\Users\ahmed0mohsen\Desktop\Resturant\Resturant.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ahmed0mohsen\Desktop\Resturant\Resturant.DAL\obj\Debug\Resturant.DAL.dll
+C:\Users\ahmed0mohsen\Desktop\Resturant\Resturant.DAL\obj\Debug\Resturant.DAL.pdb

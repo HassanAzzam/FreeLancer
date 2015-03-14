@@ -1,0 +1,918 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ResturantModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ResturantEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="ResAreaCodes" EntityType="ResturantModel.ResAreaCode" />
+    <EntitySet Name="ResCookStatusCodes" EntityType="ResturantModel.ResCookStatusCode" />
+    <EntitySet Name="ResCustomers" EntityType="ResturantModel.ResCustomer" />
+    <EntitySet Name="ResCustomerTypes" EntityType="ResturantModel.ResCustomerType" />
+    <EntitySet Name="ResDeliveryStatus" EntityType="ResturantModel.ResDeliveryStatu" />
+    <EntitySet Name="ResEmployeeBasics" EntityType="ResturantModel.ResEmployeeBasic" />
+    <EntitySet Name="ResGovCodes" EntityType="ResturantModel.ResGovCode" />
+    <EntitySet Name="ResInstructionCodes" EntityType="ResturantModel.ResInstructionCode" />
+    <EntitySet Name="ResItemCodes" EntityType="ResturantModel.ResItemCode" />
+    <EntitySet Name="ResItemTypes" EntityType="ResturantModel.ResItemType" />
+    <EntitySet Name="ResJOBCodes" EntityType="ResturantModel.ResJOBCode" />
+    <EntitySet Name="ResMainCategoryCodes" EntityType="ResturantModel.ResMainCategoryCode" />
+    <EntitySet Name="ResMenuSalesCodes" EntityType="ResturantModel.ResMenuSalesCode" />
+    <EntitySet Name="ResOrderDtls" EntityType="ResturantModel.ResOrderDtl" />
+    <EntitySet Name="ResOrderHds" EntityType="ResturantModel.ResOrderHd" />
+    <EntitySet Name="ResOrderStatus" EntityType="ResturantModel.ResOrderStatu" />
+    <EntitySet Name="ResOrderTypes" EntityType="ResturantModel.ResOrderType" />
+    <EntitySet Name="ResPayments" EntityType="ResturantModel.ResPayment" />
+    <EntitySet Name="ResProperty2Codes" EntityType="ResturantModel.ResProperty2Codes" />
+    <EntitySet Name="ResPropertyCodes" EntityType="ResturantModel.ResPropertyCode" />
+    <EntitySet Name="ResShiftsCodes" EntityType="ResturantModel.ResShiftsCode" />
+    <EntitySet Name="ResStoresCodes" EntityType="ResturantModel.ResStoresCode" />
+    <EntitySet Name="ResSusCategoryCodes" EntityType="ResturantModel.ResSusCategoryCode" />
+    <EntitySet Name="ResTablesCodes" EntityType="ResturantModel.ResTablesCode" />
+    <EntitySet Name="ResTablesStatusCodes" EntityType="ResturantModel.ResTablesStatusCode" />
+    <EntitySet Name="ResTransTypes" EntityType="ResturantModel.ResTransType" />
+    <EntitySet Name="SecForms" EntityType="ResturantModel.SecForm" />
+    <EntitySet Name="SecMenues" EntityType="ResturantModel.SecMenue" />
+    <EntitySet Name="SecPermissions" EntityType="ResturantModel.SecPermission" />
+    <EntitySet Name="SecSystems" EntityType="ResturantModel.SecSystem" />
+    <EntitySet Name="SecUsers" EntityType="ResturantModel.SecUser" />
+    <AssociationSet Name="FK_ResAreaCodes_ResGovCodes" Association="ResturantModel.FK_ResAreaCodes_ResGovCodes">
+      <End Role="ResGovCodes" EntitySet="ResGovCodes" />
+      <End Role="ResAreaCodes" EntitySet="ResAreaCodes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResCustomer_ResAreaCodes" Association="ResturantModel.FK_ResCustomer_ResAreaCodes">
+      <End Role="ResAreaCodes" EntitySet="ResAreaCodes" />
+      <End Role="ResCustomer" EntitySet="ResCustomers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResSALES_DTL_ResKITCHEN_STATUSCodes" Association="ResturantModel.FK_ResSALES_DTL_ResKITCHEN_STATUSCodes">
+      <End Role="ResCookStatusCodes" EntitySet="ResCookStatusCodes" />
+      <End Role="ResOrderDtl" EntitySet="ResOrderDtls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResCustomer_ResCustomerTypes" Association="ResturantModel.FK_ResCustomer_ResCustomerTypes">
+      <End Role="ResCustomerTypes" EntitySet="ResCustomerTypes" />
+      <End Role="ResCustomer" EntitySet="ResCustomers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResSALES_HD_ResCustomer" Association="ResturantModel.FK_ResSALES_HD_ResCustomer">
+      <End Role="ResCustomer" EntitySet="ResCustomers" />
+      <End Role="ResOrderHd" EntitySet="ResOrderHds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResOrderHd_ResDeliveryStatus" Association="ResturantModel.FK_ResOrderHd_ResDeliveryStatus">
+      <End Role="ResDeliveryStatus" EntitySet="ResDeliveryStatus" />
+      <End Role="ResOrderHd" EntitySet="ResOrderHds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResEmployeeBasic_ResJOBCodes" Association="ResturantModel.FK_ResEmployeeBasic_ResJOBCodes">
+      <End Role="ResJOBCodes" EntitySet="ResJOBCodes" />
+      <End Role="ResEmployeeBasic" EntitySet="ResEmployeeBasics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResSALES_HD_ResEmployeeBasic" Association="ResturantModel.FK_ResSALES_HD_ResEmployeeBasic">
+      <End Role="ResEmployeeBasic" EntitySet="ResEmployeeBasics" />
+      <End Role="ResOrderHd" EntitySet="ResOrderHds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResStoresCodes_ResGovCodes" Association="ResturantModel.FK_ResStoresCodes_ResGovCodes">
+      <End Role="ResGovCodes" EntitySet="ResGovCodes" />
+      <End Role="ResStoresCodes" EntitySet="ResStoresCodes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResItemCodes_ResMenuSalesCodes" Association="ResturantModel.FK_ResItemCodes_ResMenuSalesCodes">
+      <End Role="ResMenuSalesCodes" EntitySet="ResMenuSalesCodes" />
+      <End Role="ResItemCodes" EntitySet="ResItemCodes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResItemCodes_ResProperty2Codes" Association="ResturantModel.FK_ResItemCodes_ResProperty2Codes">
+      <End Role="ResProperty2Codes" EntitySet="ResProperty2Codes" />
+      <End Role="ResItemCodes" EntitySet="ResItemCodes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResItemCodes_ResPropertyCodes" Association="ResturantModel.FK_ResItemCodes_ResPropertyCodes">
+      <End Role="ResPropertyCodes" EntitySet="ResPropertyCodes" />
+      <End Role="ResItemCodes" EntitySet="ResItemCodes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResItemCodes_ResSusCategoryCodes" Association="ResturantModel.FK_ResItemCodes_ResSusCategoryCodes">
+      <End Role="ResSusCategoryCodes" EntitySet="ResSusCategoryCodes" />
+      <End Role="ResItemCodes" EntitySet="ResItemCodes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResSALES_DTL_ResItemCodes" Association="ResturantModel.FK_ResSALES_DTL_ResItemCodes">
+      <End Role="ResItemCodes" EntitySet="ResItemCodes" />
+      <End Role="ResOrderDtl" EntitySet="ResOrderDtls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResMainCategoryCodes_ResItemTypes" Association="ResturantModel.FK_ResMainCategoryCodes_ResItemTypes">
+      <End Role="ResItemTypes" EntitySet="ResItemTypes" />
+      <End Role="ResMainCategoryCodes" EntitySet="ResMainCategoryCodes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResSusCategoryCodes_ResMainCategoryCodes" Association="ResturantModel.FK_ResSusCategoryCodes_ResMainCategoryCodes">
+      <End Role="ResMainCategoryCodes" EntitySet="ResMainCategoryCodes" />
+      <End Role="ResSusCategoryCodes" EntitySet="ResSusCategoryCodes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResOrderDtl_ResOrderHd" Association="ResturantModel.FK_ResOrderDtl_ResOrderHd">
+      <End Role="ResOrderHd" EntitySet="ResOrderHds" />
+      <End Role="ResOrderDtl" EntitySet="ResOrderDtls" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResPayment_ResOrderHd1" Association="ResturantModel.FK_ResPayment_ResOrderHd1">
+      <End Role="ResOrderHd" EntitySet="ResOrderHds" />
+      <End Role="ResPayment" EntitySet="ResPayments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResSALES_HD_ResOrderStatus" Association="ResturantModel.FK_ResSALES_HD_ResOrderStatus">
+      <End Role="ResOrderStatus" EntitySet="ResOrderStatus" />
+      <End Role="ResOrderHd" EntitySet="ResOrderHds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResSALES_HD_ResSALES_TYPES" Association="ResturantModel.FK_ResSALES_HD_ResSALES_TYPES">
+      <End Role="ResOrderTypes" EntitySet="ResOrderTypes" />
+      <End Role="ResOrderHd" EntitySet="ResOrderHds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResSALES_HD_ResShiftsCodes" Association="ResturantModel.FK_ResSALES_HD_ResShiftsCodes">
+      <End Role="ResShiftsCodes" EntitySet="ResShiftsCodes" />
+      <End Role="ResOrderHd" EntitySet="ResOrderHds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResSALES_HD_ResStoresCodes" Association="ResturantModel.FK_ResSALES_HD_ResStoresCodes">
+      <End Role="ResStoresCodes" EntitySet="ResStoresCodes" />
+      <End Role="ResOrderHd" EntitySet="ResOrderHds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResSALES_HD_ResTablesCodes" Association="ResturantModel.FK_ResSALES_HD_ResTablesCodes">
+      <End Role="ResTablesCodes" EntitySet="ResTablesCodes" />
+      <End Role="ResOrderHd" EntitySet="ResOrderHds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResTablesCodes_ResTablesStatusCodes" Association="ResturantModel.FK_ResTablesCodes_ResTablesStatusCodes">
+      <End Role="ResTablesStatusCodes" EntitySet="ResTablesStatusCodes" />
+      <End Role="ResTablesCodes" EntitySet="ResTablesCodes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SecForms_SecSystems" Association="ResturantModel.FK_SecForms_SecSystems">
+      <End Role="SecSystems" EntitySet="SecSystems" />
+      <End Role="SecForms" EntitySet="SecForms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SecPermissions_SecForms" Association="ResturantModel.FK_SecPermissions_SecForms">
+      <End Role="SecForms" EntitySet="SecForms" />
+      <End Role="SecPermissions" EntitySet="SecPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SecMenues_SecSystems" Association="ResturantModel.FK_SecMenues_SecSystems">
+      <End Role="SecSystems" EntitySet="SecSystems" />
+      <End Role="SecMenues" EntitySet="SecMenues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SecPermissions_SecUsers" Association="ResturantModel.FK_SecPermissions_SecUsers">
+      <End Role="SecUsers" EntitySet="SecUsers" />
+      <End Role="SecPermissions" EntitySet="SecPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="ResOrderDtlInstruction" Association="ResturantModel.ResOrderDtlInstruction">
+      <End Role="ResInstructionCodes" EntitySet="ResInstructionCodes" />
+      <End Role="ResOrderDtl" EntitySet="ResOrderDtls" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ResAreaCode">
+    <Key>
+      <PropertyRef Name="GovId" />
+      <PropertyRef Name="AreaId" />
+    </Key>
+    <Property Name="GovId" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="AreaId" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="AreaNameA" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="AreaNameE" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="ServiceVal" Type="Decimal" Precision="7" Scale="2" />
+    <Property Name="UserName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="InsertDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ResGovCode" Relationship="ResturantModel.FK_ResAreaCodes_ResGovCodes" FromRole="ResAreaCodes" ToRole="ResGovCodes" />
+    <NavigationProperty Name="ResCustomers" Relationship="ResturantModel.FK_ResCustomer_ResAreaCodes" FromRole="ResAreaCodes" ToRole="ResCustomer" />
+  </EntityType>
+  <EntityType Name="ResCookStatusCode">
+    <Key>
+      <PropertyRef Name="CookStatus" />
+    </Key>
+    <Property Name="CookStatus" Type="Decimal" Nullable="false" Precision="1" Scale="0" />
+    <Property Name="CookStatusNameA" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CookStatusNameE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="ResOrderDtls" Relationship="ResturantModel.FK_ResSALES_DTL_ResKITCHEN_STATUSCodes" FromRole="ResCookStatusCodes" ToRole="ResOrderDtl" />
+  </EntityType>
+  <EntityType Name="ResCustomer">
+    <Key>
+      <PropertyRef Name="CustId" />
+    </Key>
+    <Property Name="CustId" Type="Decimal" Nullable="false" Precision="9" Scale="0" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="CustNameA" Type="String" MaxLength="80" Unicode="false" FixedLength="false" />
+    <Property Name="CustNameE" Type="String" MaxLength="80" Unicode="false" FixedLength="false" />
+    <Property Name="CustAddressA" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="CustAddressE" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="GovId" Type="Decimal" Precision="3" Scale="0" />
+    <Property Name="AreaId" Type="Decimal" Precision="3" Scale="0" />
+    <Property Name="Street" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="BuildingNo" Type="Int32" />
+    <Property Name="ApartmentNo" Type="Int32" />
+    <Property Name="Tel1" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="Tel2" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="Tel3" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="Comment" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="UserName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="InsertDt" Type="DateTime" Precision="3" />
+    <Property Name="CustType" Type="Decimal" Precision="1" Scale="0" />
+    <NavigationProperty Name="ResAreaCode" Relationship="ResturantModel.FK_ResCustomer_ResAreaCodes" FromRole="ResCustomer" ToRole="ResAreaCodes" />
+    <NavigationProperty Name="ResCustomerType" Relationship="ResturantModel.FK_ResCustomer_ResCustomerTypes" FromRole="ResCustomer" ToRole="ResCustomerTypes" />
+    <NavigationProperty Name="ResOrderHds" Relationship="ResturantModel.FK_ResSALES_HD_ResCustomer" FromRole="ResCustomer" ToRole="ResOrderHd" />
+  </EntityType>
+  <EntityType Name="ResCustomerType">
+    <Key>
+      <PropertyRef Name="CustType" />
+    </Key>
+    <Property Name="CustType" Type="Decimal" Nullable="false" Precision="1" Scale="0" />
+    <Property Name="CustTypeNameA" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="CustTypeNameE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="ResCustomers" Relationship="ResturantModel.FK_ResCustomer_ResCustomerTypes" FromRole="ResCustomerTypes" ToRole="ResCustomer" />
+  </EntityType>
+  <EntityType Name="ResDeliveryStatu">
+    <Key>
+      <PropertyRef Name="DeliveryStatus" />
+    </Key>
+    <Property Name="DeliveryStatus" Type="Decimal" Nullable="false" Precision="1" Scale="0" />
+    <Property Name="DeliveryStatusNameA" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="DeliveryStatusNameE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="ResOrderHds" Relationship="ResturantModel.FK_ResOrderHd_ResDeliveryStatus" FromRole="ResDeliveryStatus" ToRole="ResOrderHd" />
+  </EntityType>
+  <EntityType Name="ResEmployeeBasic">
+    <Key>
+      <PropertyRef Name="EmpId" />
+    </Key>
+    <Property Name="EmpId" Type="Decimal" Nullable="false" Precision="7" Scale="0" />
+    <Property Name="EmpName" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="JobId" Type="Decimal" Precision="3" Scale="0" />
+    <Property Name="WorkStatus" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="Tel1" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="Tel2" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="InsertDt" Type="DateTime" Precision="3" />
+    <Property Name="UserName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="ResJOBCode" Relationship="ResturantModel.FK_ResEmployeeBasic_ResJOBCodes" FromRole="ResEmployeeBasic" ToRole="ResJOBCodes" />
+    <NavigationProperty Name="ResOrderHds" Relationship="ResturantModel.FK_ResSALES_HD_ResEmployeeBasic" FromRole="ResEmployeeBasic" ToRole="ResOrderHd" />
+  </EntityType>
+  <EntityType Name="ResGovCode">
+    <Key>
+      <PropertyRef Name="GovId" />
+    </Key>
+    <Property Name="GovId" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="GovNameA" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="GovNameE" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="UserName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="InsertDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ResAreaCodes" Relationship="ResturantModel.FK_ResAreaCodes_ResGovCodes" FromRole="ResGovCodes" ToRole="ResAreaCodes" />
+    <NavigationProperty Name="ResStoresCodes" Relationship="ResturantModel.FK_ResStoresCodes_ResGovCodes" FromRole="ResGovCodes" ToRole="ResStoresCodes" />
+  </EntityType>
+  <EntityType Name="ResInstructionCode">
+    <Key>
+      <PropertyRef Name="InstructionId" />
+    </Key>
+    <Property Name="InstructionId" Type="Decimal" Nullable="false" Precision="3" Scale="0" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="InstructionNameA" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="InstructionNameE" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="ResOrderDtls" Relationship="ResturantModel.ResOrderDtlInstruction" FromRole="ResInstructionCodes" ToRole="ResOrderDtl" />
+  </EntityType>
+  <EntityType Name="ResItemCode">
+    <Key>
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Name="ItemId" Type="Decimal" Nullable="false" Precision="12" Scale="0" />
+    <Property Name="MainCategoryId" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="SubCategoryId" Type="Decimal" Nullable="false" Precision="7" Scale="0" />
+    <Property Name="PropertyId" Type="Decimal" Precision="3" Scale="0" />
+    <Property Name="Property2Id" Type="Decimal" Precision="3" Scale="0" />
+    <Property Name="MenuSalesId" Type="Decimal" Precision="3" Scale="0" />
+    <Property Name="CostPrice" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="SalesPrice" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="OpenQty" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="CurrentQty" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="Comment" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="UserName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="InsertDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ResMenuSalesCode" Relationship="ResturantModel.FK_ResItemCodes_ResMenuSalesCodes" FromRole="ResItemCodes" ToRole="ResMenuSalesCodes" />
+    <NavigationProperty Name="ResProperty2Codes" Relationship="ResturantModel.FK_ResItemCodes_ResProperty2Codes" FromRole="ResItemCodes" ToRole="ResProperty2Codes" />
+    <NavigationProperty Name="ResPropertyCode" Relationship="ResturantModel.FK_ResItemCodes_ResPropertyCodes" FromRole="ResItemCodes" ToRole="ResPropertyCodes" />
+    <NavigationProperty Name="ResSusCategoryCode" Relationship="ResturantModel.FK_ResItemCodes_ResSusCategoryCodes" FromRole="ResItemCodes" ToRole="ResSusCategoryCodes" />
+    <NavigationProperty Name="ResOrderDtls" Relationship="ResturantModel.FK_ResSALES_DTL_ResItemCodes" FromRole="ResItemCodes" ToRole="ResOrderDtl" />
+  </EntityType>
+  <EntityType Name="ResItemType">
+    <Key>
+      <PropertyRef Name="TypeId" />
+    </Key>
+    <Property Name="TypeId" Type="Decimal" Nullable="false" Precision="1" Scale="0" />
+    <Property Name="TypeNameA" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="TypeNameE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="ResMainCategoryCodes" Relationship="ResturantModel.FK_ResMainCategoryCodes_ResItemTypes" FromRole="ResItemTypes" ToRole="ResMainCategoryCodes" />
+  </EntityType>
+  <EntityType Name="ResJOBCode">
+    <Key>
+      <PropertyRef Name="JobId" />
+    </Key>
+    <Property Name="JobId" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="JobNameA" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="JobNameE" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="UserName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="InsertDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ResEmployeeBasics" Relationship="ResturantModel.FK_ResEmployeeBasic_ResJOBCodes" FromRole="ResJOBCodes" ToRole="ResEmployeeBasic" />
+  </EntityType>
+  <EntityType Name="ResMainCategoryCode">
+    <Key>
+      <PropertyRef Name="MainCategoryId" />
+    </Key>
+    <Property Name="MainCategoryId" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="MainCategoryNameA" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="MainCategoryNameE" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="PrintGroupNo" Type="Decimal" Precision="3" Scale="0" />
+    <Property Name="ShowInInvoice" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="MainImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="TypeId" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="UserName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="InsertDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ResItemType" Relationship="ResturantModel.FK_ResMainCategoryCodes_ResItemTypes" FromRole="ResMainCategoryCodes" ToRole="ResItemTypes" />
+    <NavigationProperty Name="ResSusCategoryCodes" Relationship="ResturantModel.FK_ResSusCategoryCodes_ResMainCategoryCodes" FromRole="ResMainCategoryCodes" ToRole="ResSusCategoryCodes" />
+  </EntityType>
+  <EntityType Name="ResMenuSalesCode">
+    <Key>
+      <PropertyRef Name="MenuSalesId" />
+    </Key>
+    <Property Name="MenuSalesId" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="MenuSalesNameA" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="MenuSalesNameE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="seq" Type="Decimal" Precision="3" Scale="0" />
+    <NavigationProperty Name="ResItemCodes" Relationship="ResturantModel.FK_ResItemCodes_ResMenuSalesCodes" FromRole="ResMenuSalesCodes" ToRole="ResItemCodes" />
+  </EntityType>
+  <EntityType Name="ResOrderDtl">
+    <Key>
+      <PropertyRef Name="OrederId" />
+      <PropertyRef Name="SeqNo" />
+    </Key>
+    <Property Name="OrederId" Type="Decimal" Nullable="false" Precision="12" Scale="0" />
+    <Property Name="SeqNo" Type="Decimal" Nullable="false" Precision="4" Scale="0" />
+    <Property Name="ItemId" Type="Decimal" Nullable="false" Precision="12" Scale="0" />
+    <Property Name="Qty" Type="Decimal" Precision="9" Scale="2" />
+    <Property Name="Price" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="CookStatus" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="CookStatusTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ResCookStatusCode" Relationship="ResturantModel.FK_ResSALES_DTL_ResKITCHEN_STATUSCodes" FromRole="ResOrderDtl" ToRole="ResCookStatusCodes" />
+    <NavigationProperty Name="ResItemCode" Relationship="ResturantModel.FK_ResSALES_DTL_ResItemCodes" FromRole="ResOrderDtl" ToRole="ResItemCodes" />
+    <NavigationProperty Name="ResOrderHd" Relationship="ResturantModel.FK_ResOrderDtl_ResOrderHd" FromRole="ResOrderDtl" ToRole="ResOrderHd" />
+    <NavigationProperty Name="ResInstructionCodes" Relationship="ResturantModel.ResOrderDtlInstruction" FromRole="ResOrderDtl" ToRole="ResInstructionCodes" />
+  </EntityType>
+  <EntityType Name="ResOrderHd">
+    <Key>
+      <PropertyRef Name="OrederId" />
+    </Key>
+    <Property Name="OrederId" Type="Decimal" Nullable="false" Precision="12" Scale="0" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="BranchId" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="OrderNo" Type="Decimal" Nullable="false" Precision="9" Scale="0" />
+    <Property Name="OrderDt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="OrderType" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="OrderTime" Type="DateTime" Precision="3" />
+    <Property Name="ShiftId" Type="Decimal" Nullable="false" Precision="1" Scale="0" />
+    <Property Name="CustId" Type="Decimal" Nullable="false" Precision="9" Scale="0" />
+    <Property Name="TotalPrice" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="PriceAdd" Type="Decimal" Precision="9" Scale="2" />
+    <Property Name="DiscountRatio" Type="Decimal" Precision="9" Scale="2" />
+    <Property Name="DiscountVal" Type="Decimal" Precision="9" Scale="2" />
+    <Property Name="ServiceVal" Type="Decimal" Precision="9" Scale="0" />
+    <Property Name="NetPrice" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="CashVal" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="RemainderVal" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="SwDelete" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="OrderStatus" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="DeliveryId" Type="Decimal" Precision="7" Scale="0" />
+    <Property Name="DeliveryStatus" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="ToDeliveryTime" Type="DateTime" Precision="3" />
+    <Property Name="DeliveryTimeRequired" Type="DateTime" Precision="3" />
+    <Property Name="FromDeliveryTime" Type="DateTime" Precision="3" />
+    <Property Name="TableNo" Type="Int32" />
+    <Property Name="PeopleCount" Type="Int32" />
+    <Property Name="UserName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="UserNameDeleted" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="Comment" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="InsertDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ResCustomer" Relationship="ResturantModel.FK_ResSALES_HD_ResCustomer" FromRole="ResOrderHd" ToRole="ResCustomer" />
+    <NavigationProperty Name="ResDeliveryStatu" Relationship="ResturantModel.FK_ResOrderHd_ResDeliveryStatus" FromRole="ResOrderHd" ToRole="ResDeliveryStatus" />
+    <NavigationProperty Name="ResEmployeeBasic" Relationship="ResturantModel.FK_ResSALES_HD_ResEmployeeBasic" FromRole="ResOrderHd" ToRole="ResEmployeeBasic" />
+    <NavigationProperty Name="ResOrderDtls" Relationship="ResturantModel.FK_ResOrderDtl_ResOrderHd" FromRole="ResOrderHd" ToRole="ResOrderDtl" />
+    <NavigationProperty Name="ResPayments" Relationship="ResturantModel.FK_ResPayment_ResOrderHd1" FromRole="ResOrderHd" ToRole="ResPayment" />
+    <NavigationProperty Name="ResOrderStatu" Relationship="ResturantModel.FK_ResSALES_HD_ResOrderStatus" FromRole="ResOrderHd" ToRole="ResOrderStatus" />
+    <NavigationProperty Name="ResOrderType" Relationship="ResturantModel.FK_ResSALES_HD_ResSALES_TYPES" FromRole="ResOrderHd" ToRole="ResOrderTypes" />
+    <NavigationProperty Name="ResShiftsCode" Relationship="ResturantModel.FK_ResSALES_HD_ResShiftsCodes" FromRole="ResOrderHd" ToRole="ResShiftsCodes" />
+    <NavigationProperty Name="ResStoresCode" Relationship="ResturantModel.FK_ResSALES_HD_ResStoresCodes" FromRole="ResOrderHd" ToRole="ResStoresCodes" />
+    <NavigationProperty Name="ResTablesCode" Relationship="ResturantModel.FK_ResSALES_HD_ResTablesCodes" FromRole="ResOrderHd" ToRole="ResTablesCodes" />
+  </EntityType>
+  <EntityType Name="ResOrderStatu">
+    <Key>
+      <PropertyRef Name="OrderStatus" />
+    </Key>
+    <Property Name="OrderStatus" Type="Decimal" Nullable="false" Precision="1" Scale="0" />
+    <Property Name="StatusNameA" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="StatusNameE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="ResOrderHds" Relationship="ResturantModel.FK_ResSALES_HD_ResOrderStatus" FromRole="ResOrderStatus" ToRole="ResOrderHd" />
+  </EntityType>
+  <EntityType Name="ResOrderType">
+    <Key>
+      <PropertyRef Name="OrderType" />
+    </Key>
+    <Property Name="OrderType" Type="Decimal" Nullable="false" Precision="1" Scale="0" />
+    <Property Name="SaleNameA" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="SaleNameE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="ResOrderHds" Relationship="ResturantModel.FK_ResSALES_HD_ResSALES_TYPES" FromRole="ResOrderTypes" ToRole="ResOrderHd" />
+  </EntityType>
+  <EntityType Name="ResPayment">
+    <Key>
+      <PropertyRef Name="DocNo" />
+    </Key>
+    <Property Name="DocNo" Type="Decimal" Nullable="false" Precision="12" Scale="0" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="OrederId" Type="Decimal" Nullable="false" Precision="12" Scale="0" />
+    <Property Name="CashVal" Type="Decimal" Nullable="false" Precision="12" Scale="2" />
+    <Property Name="CardVal" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="UserName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="InsertDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ResOrderHd" Relationship="ResturantModel.FK_ResPayment_ResOrderHd1" FromRole="ResPayment" ToRole="ResOrderHd" />
+  </EntityType>
+  <EntityType Name="ResProperty2Codes">
+    <Key>
+      <PropertyRef Name="Property2Id" />
+    </Key>
+    <Property Name="Property2Id" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="Property2NameA" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Property2NameE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="UserName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="InsertDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ResItemCodes" Relationship="ResturantModel.FK_ResItemCodes_ResProperty2Codes" FromRole="ResProperty2Codes" ToRole="ResItemCodes" />
+  </EntityType>
+  <EntityType Name="ResPropertyCode">
+    <Key>
+      <PropertyRef Name="PropertyId" />
+    </Key>
+    <Property Name="PropertyId" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="PropertyNameA" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="PropertyNameE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="UserName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="InsertDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ResItemCodes" Relationship="ResturantModel.FK_ResItemCodes_ResPropertyCodes" FromRole="ResPropertyCodes" ToRole="ResItemCodes" />
+  </EntityType>
+  <EntityType Name="ResShiftsCode">
+    <Key>
+      <PropertyRef Name="ShiftId" />
+    </Key>
+    <Property Name="ShiftId" Type="Decimal" Nullable="false" Precision="1" Scale="0" />
+    <Property Name="ShiftNameE" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ShiftNamea" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="UserName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="InsertDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ResOrderHds" Relationship="ResturantModel.FK_ResSALES_HD_ResShiftsCodes" FromRole="ResShiftsCodes" ToRole="ResOrderHd" />
+  </EntityType>
+  <EntityType Name="ResStoresCode">
+    <Key>
+      <PropertyRef Name="BranchId" />
+    </Key>
+    <Property Name="BranchId" Type="Decimal" Nullable="false" Precision="3" Scale="0" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="BranchNameA" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="BranchNameE" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="GovId" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="AddressA" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="AddressE" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="Tel1" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="Tel2" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="Tel3" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="ServiceRatio" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="MinChargeVal" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="StartDt" Type="DateTime" Precision="3" />
+    <Property Name="CloseSw" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="CloseDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ResGovCode" Relationship="ResturantModel.FK_ResStoresCodes_ResGovCodes" FromRole="ResStoresCodes" ToRole="ResGovCodes" />
+    <NavigationProperty Name="ResOrderHds" Relationship="ResturantModel.FK_ResSALES_HD_ResStoresCodes" FromRole="ResStoresCodes" ToRole="ResOrderHd" />
+  </EntityType>
+  <EntityType Name="ResSusCategoryCode">
+    <Key>
+      <PropertyRef Name="MainCategoryId" />
+      <PropertyRef Name="SubCategoryId" />
+    </Key>
+    <Property Name="MainCategoryId" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="SubCategoryId" Type="Decimal" Nullable="false" Precision="7" Scale="0" />
+    <Property Name="SubCategoryNameA" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="SubCategoryNameE" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="SubImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="UserName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="InsertDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ResItemCodes" Relationship="ResturantModel.FK_ResItemCodes_ResSusCategoryCodes" FromRole="ResSusCategoryCodes" ToRole="ResItemCodes" />
+    <NavigationProperty Name="ResMainCategoryCode" Relationship="ResturantModel.FK_ResSusCategoryCodes_ResMainCategoryCodes" FromRole="ResSusCategoryCodes" ToRole="ResMainCategoryCodes" />
+  </EntityType>
+  <EntityType Name="ResTablesCode">
+    <Key>
+      <PropertyRef Name="TableNo" />
+    </Key>
+    <Property Name="TableNo" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="TableName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="StatusId" Type="Decimal" Precision="1" Scale="0" />
+    <NavigationProperty Name="ResOrderHds" Relationship="ResturantModel.FK_ResSALES_HD_ResTablesCodes" FromRole="ResTablesCodes" ToRole="ResOrderHd" />
+    <NavigationProperty Name="ResTablesStatusCode" Relationship="ResturantModel.FK_ResTablesCodes_ResTablesStatusCodes" FromRole="ResTablesCodes" ToRole="ResTablesStatusCodes" />
+  </EntityType>
+  <EntityType Name="ResTablesStatusCode">
+    <Key>
+      <PropertyRef Name="StatusId" />
+    </Key>
+    <Property Name="StatusId" Type="Decimal" Nullable="false" Precision="1" Scale="0" />
+    <Property Name="StatusDesc" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="ResTablesCodes" Relationship="ResturantModel.FK_ResTablesCodes_ResTablesStatusCodes" FromRole="ResTablesStatusCodes" ToRole="ResTablesCodes" />
+  </EntityType>
+  <EntityType Name="ResTransType">
+    <Key>
+      <PropertyRef Name="trans_type" />
+    </Key>
+    <Property Name="trans_type" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="TransNameE" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="TransNameA" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="TransFunction" Type="Decimal" Precision="1" Scale="0" />
+  </EntityType>
+  <EntityType Name="SecForm">
+    <Key>
+      <PropertyRef Name="ModuleNo" />
+      <PropertyRef Name="FormNo" />
+    </Key>
+    <Property Name="ModuleNo" Type="Int32" Nullable="false" />
+    <Property Name="FormNo" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="FormNameA" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="FormNameE" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="FormUrl" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="MenuNo" Type="Decimal" Precision="2" Scale="0" />
+    <Property Name="rank" Type="Int32" />
+    <NavigationProperty Name="SecSystem" Relationship="ResturantModel.FK_SecForms_SecSystems" FromRole="SecForms" ToRole="SecSystems" />
+    <NavigationProperty Name="SecPermissions" Relationship="ResturantModel.FK_SecPermissions_SecForms" FromRole="SecForms" ToRole="SecPermissions" />
+  </EntityType>
+  <EntityType Name="SecMenue">
+    <Key>
+      <PropertyRef Name="ModuleNo" />
+      <PropertyRef Name="MenuNo" />
+    </Key>
+    <Property Name="ModuleNo" Type="Int32" Nullable="false" />
+    <Property Name="MenuNo" Type="Decimal" Nullable="false" Precision="2" Scale="0" />
+    <Property Name="MenuNameA" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="MenuNameE" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="SecSystem" Relationship="ResturantModel.FK_SecMenues_SecSystems" FromRole="SecMenues" ToRole="SecSystems" />
+  </EntityType>
+  <EntityType Name="SecPermission">
+    <Key>
+      <PropertyRef Name="ModuleNo" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="FormNo" />
+    </Key>
+    <Property Name="ModuleNo" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="FormNo" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="UpdatSw" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="InsertSw" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="DeleteSw" Type="Decimal" Precision="1" Scale="0" />
+    <NavigationProperty Name="SecForm" Relationship="ResturantModel.FK_SecPermissions_SecForms" FromRole="SecPermissions" ToRole="SecForms" />
+    <NavigationProperty Name="SecUser" Relationship="ResturantModel.FK_SecPermissions_SecUsers" FromRole="SecPermissions" ToRole="SecUsers" />
+  </EntityType>
+  <EntityType Name="SecSystem">
+    <Key>
+      <PropertyRef Name="ModuleNo" />
+    </Key>
+    <Property Name="ModuleNo" Type="Int32" Nullable="false" />
+    <Property Name="ModuleNameA" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="ModuleNameE" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="SecForms" Relationship="ResturantModel.FK_SecForms_SecSystems" FromRole="SecSystems" ToRole="SecForms" />
+    <NavigationProperty Name="SecMenues" Relationship="ResturantModel.FK_SecMenues_SecSystems" FromRole="SecSystems" ToRole="SecMenues" />
+  </EntityType>
+  <EntityType Name="SecUser">
+    <Key>
+      <PropertyRef Name="UserName" />
+    </Key>
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="UserPasswd" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="SwSpecialUser" Type="Decimal" Precision="1" Scale="0" />
+    <Property Name="InsertDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SecPermissions" Relationship="ResturantModel.FK_SecPermissions_SecUsers" FromRole="SecUsers" ToRole="SecPermissions" />
+  </EntityType>
+  <Association Name="FK_ResAreaCodes_ResGovCodes">
+    <End Role="ResGovCodes" Type="ResturantModel.ResGovCode" Multiplicity="1" />
+    <End Role="ResAreaCodes" Type="ResturantModel.ResAreaCode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResGovCodes">
+        <PropertyRef Name="GovId" />
+      </Principal>
+      <Dependent Role="ResAreaCodes">
+        <PropertyRef Name="GovId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResCustomer_ResAreaCodes">
+    <End Role="ResAreaCodes" Type="ResturantModel.ResAreaCode" Multiplicity="0..1" />
+    <End Role="ResCustomer" Type="ResturantModel.ResCustomer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResAreaCodes">
+        <PropertyRef Name="GovId" />
+        <PropertyRef Name="AreaId" />
+      </Principal>
+      <Dependent Role="ResCustomer">
+        <PropertyRef Name="GovId" />
+        <PropertyRef Name="AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResSALES_DTL_ResKITCHEN_STATUSCodes">
+    <End Role="ResCookStatusCodes" Type="ResturantModel.ResCookStatusCode" Multiplicity="0..1" />
+    <End Role="ResOrderDtl" Type="ResturantModel.ResOrderDtl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResCookStatusCodes">
+        <PropertyRef Name="CookStatus" />
+      </Principal>
+      <Dependent Role="ResOrderDtl">
+        <PropertyRef Name="CookStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResCustomer_ResCustomerTypes">
+    <End Role="ResCustomerTypes" Type="ResturantModel.ResCustomerType" Multiplicity="0..1" />
+    <End Role="ResCustomer" Type="ResturantModel.ResCustomer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResCustomerTypes">
+        <PropertyRef Name="CustType" />
+      </Principal>
+      <Dependent Role="ResCustomer">
+        <PropertyRef Name="CustType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResSALES_HD_ResCustomer">
+    <End Role="ResCustomer" Type="ResturantModel.ResCustomer" Multiplicity="1" />
+    <End Role="ResOrderHd" Type="ResturantModel.ResOrderHd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResCustomer">
+        <PropertyRef Name="CustId" />
+      </Principal>
+      <Dependent Role="ResOrderHd">
+        <PropertyRef Name="CustId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResOrderHd_ResDeliveryStatus">
+    <End Role="ResDeliveryStatus" Type="ResturantModel.ResDeliveryStatu" Multiplicity="0..1" />
+    <End Role="ResOrderHd" Type="ResturantModel.ResOrderHd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResDeliveryStatus">
+        <PropertyRef Name="DeliveryStatus" />
+      </Principal>
+      <Dependent Role="ResOrderHd">
+        <PropertyRef Name="DeliveryStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResEmployeeBasic_ResJOBCodes">
+    <End Role="ResJOBCodes" Type="ResturantModel.ResJOBCode" Multiplicity="0..1" />
+    <End Role="ResEmployeeBasic" Type="ResturantModel.ResEmployeeBasic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResJOBCodes">
+        <PropertyRef Name="JobId" />
+      </Principal>
+      <Dependent Role="ResEmployeeBasic">
+        <PropertyRef Name="JobId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResSALES_HD_ResEmployeeBasic">
+    <End Role="ResEmployeeBasic" Type="ResturantModel.ResEmployeeBasic" Multiplicity="0..1" />
+    <End Role="ResOrderHd" Type="ResturantModel.ResOrderHd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResEmployeeBasic">
+        <PropertyRef Name="EmpId" />
+      </Principal>
+      <Dependent Role="ResOrderHd">
+        <PropertyRef Name="DeliveryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResStoresCodes_ResGovCodes">
+    <End Role="ResGovCodes" Type="ResturantModel.ResGovCode" Multiplicity="1" />
+    <End Role="ResStoresCodes" Type="ResturantModel.ResStoresCode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResGovCodes">
+        <PropertyRef Name="GovId" />
+      </Principal>
+      <Dependent Role="ResStoresCodes">
+        <PropertyRef Name="GovId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResItemCodes_ResMenuSalesCodes">
+    <End Role="ResMenuSalesCodes" Type="ResturantModel.ResMenuSalesCode" Multiplicity="0..1" />
+    <End Role="ResItemCodes" Type="ResturantModel.ResItemCode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResMenuSalesCodes">
+        <PropertyRef Name="MenuSalesId" />
+      </Principal>
+      <Dependent Role="ResItemCodes">
+        <PropertyRef Name="MenuSalesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResItemCodes_ResProperty2Codes">
+    <End Role="ResProperty2Codes" Type="ResturantModel.ResProperty2Codes" Multiplicity="0..1" />
+    <End Role="ResItemCodes" Type="ResturantModel.ResItemCode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResProperty2Codes">
+        <PropertyRef Name="Property2Id" />
+      </Principal>
+      <Dependent Role="ResItemCodes">
+        <PropertyRef Name="Property2Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResItemCodes_ResPropertyCodes">
+    <End Role="ResPropertyCodes" Type="ResturantModel.ResPropertyCode" Multiplicity="0..1" />
+    <End Role="ResItemCodes" Type="ResturantModel.ResItemCode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResPropertyCodes">
+        <PropertyRef Name="PropertyId" />
+      </Principal>
+      <Dependent Role="ResItemCodes">
+        <PropertyRef Name="PropertyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResItemCodes_ResSusCategoryCodes">
+    <End Role="ResSusCategoryCodes" Type="ResturantModel.ResSusCategoryCode" Multiplicity="1" />
+    <End Role="ResItemCodes" Type="ResturantModel.ResItemCode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResSusCategoryCodes">
+        <PropertyRef Name="MainCategoryId" />
+        <PropertyRef Name="SubCategoryId" />
+      </Principal>
+      <Dependent Role="ResItemCodes">
+        <PropertyRef Name="MainCategoryId" />
+        <PropertyRef Name="SubCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResSALES_DTL_ResItemCodes">
+    <End Role="ResItemCodes" Type="ResturantModel.ResItemCode" Multiplicity="1" />
+    <End Role="ResOrderDtl" Type="ResturantModel.ResOrderDtl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResItemCodes">
+        <PropertyRef Name="ItemId" />
+      </Principal>
+      <Dependent Role="ResOrderDtl">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResMainCategoryCodes_ResItemTypes">
+    <End Role="ResItemTypes" Type="ResturantModel.ResItemType" Multiplicity="0..1" />
+    <End Role="ResMainCategoryCodes" Type="ResturantModel.ResMainCategoryCode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResItemTypes">
+        <PropertyRef Name="TypeId" />
+      </Principal>
+      <Dependent Role="ResMainCategoryCodes">
+        <PropertyRef Name="TypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResSusCategoryCodes_ResMainCategoryCodes">
+    <End Role="ResMainCategoryCodes" Type="ResturantModel.ResMainCategoryCode" Multiplicity="1" />
+    <End Role="ResSusCategoryCodes" Type="ResturantModel.ResSusCategoryCode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResMainCategoryCodes">
+        <PropertyRef Name="MainCategoryId" />
+      </Principal>
+      <Dependent Role="ResSusCategoryCodes">
+        <PropertyRef Name="MainCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResOrderDtl_ResOrderHd">
+    <End Role="ResOrderHd" Type="ResturantModel.ResOrderHd" Multiplicity="1" />
+    <End Role="ResOrderDtl" Type="ResturantModel.ResOrderDtl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResOrderHd">
+        <PropertyRef Name="OrederId" />
+      </Principal>
+      <Dependent Role="ResOrderDtl">
+        <PropertyRef Name="OrederId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResPayment_ResOrderHd1">
+    <End Role="ResOrderHd" Type="ResturantModel.ResOrderHd" Multiplicity="1" />
+    <End Role="ResPayment" Type="ResturantModel.ResPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResOrderHd">
+        <PropertyRef Name="OrederId" />
+      </Principal>
+      <Dependent Role="ResPayment">
+        <PropertyRef Name="OrederId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResSALES_HD_ResOrderStatus">
+    <End Role="ResOrderStatus" Type="ResturantModel.ResOrderStatu" Multiplicity="0..1" />
+    <End Role="ResOrderHd" Type="ResturantModel.ResOrderHd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResOrderStatus">
+        <PropertyRef Name="OrderStatus" />
+      </Principal>
+      <Dependent Role="ResOrderHd">
+        <PropertyRef Name="OrderStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResSALES_HD_ResSALES_TYPES">
+    <End Role="ResOrderTypes" Type="ResturantModel.ResOrderType" Multiplicity="0..1" />
+    <End Role="ResOrderHd" Type="ResturantModel.ResOrderHd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResOrderTypes">
+        <PropertyRef Name="OrderType" />
+      </Principal>
+      <Dependent Role="ResOrderHd">
+        <PropertyRef Name="OrderType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResSALES_HD_ResShiftsCodes">
+    <End Role="ResShiftsCodes" Type="ResturantModel.ResShiftsCode" Multiplicity="1" />
+    <End Role="ResOrderHd" Type="ResturantModel.ResOrderHd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResShiftsCodes">
+        <PropertyRef Name="ShiftId" />
+      </Principal>
+      <Dependent Role="ResOrderHd">
+        <PropertyRef Name="ShiftId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResSALES_HD_ResStoresCodes">
+    <End Role="ResStoresCodes" Type="ResturantModel.ResStoresCode" Multiplicity="1" />
+    <End Role="ResOrderHd" Type="ResturantModel.ResOrderHd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResStoresCodes">
+        <PropertyRef Name="BranchId" />
+      </Principal>
+      <Dependent Role="ResOrderHd">
+        <PropertyRef Name="BranchId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResSALES_HD_ResTablesCodes">
+    <End Role="ResTablesCodes" Type="ResturantModel.ResTablesCode" Multiplicity="0..1" />
+    <End Role="ResOrderHd" Type="ResturantModel.ResOrderHd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResTablesCodes">
+        <PropertyRef Name="TableNo" />
+      </Principal>
+      <Dependent Role="ResOrderHd">
+        <PropertyRef Name="TableNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResTablesCodes_ResTablesStatusCodes">
+    <End Role="ResTablesStatusCodes" Type="ResturantModel.ResTablesStatusCode" Multiplicity="0..1" />
+    <End Role="ResTablesCodes" Type="ResturantModel.ResTablesCode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResTablesStatusCodes">
+        <PropertyRef Name="StatusId" />
+      </Principal>
+      <Dependent Role="ResTablesCodes">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SecForms_SecSystems">
+    <End Role="SecSystems" Type="ResturantModel.SecSystem" Multiplicity="1" />
+    <End Role="SecForms" Type="ResturantModel.SecForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SecSystems">
+        <PropertyRef Name="ModuleNo" />
+      </Principal>
+      <Dependent Role="SecForms">
+        <PropertyRef Name="ModuleNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SecPermissions_SecForms">
+    <End Role="SecForms" Type="ResturantModel.SecForm" Multiplicity="1" />
+    <End Role="SecPermissions" Type="ResturantModel.SecPermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SecForms">
+        <PropertyRef Name="ModuleNo" />
+        <PropertyRef Name="FormNo" />
+      </Principal>
+      <Dependent Role="SecPermissions">
+        <PropertyRef Name="ModuleNo" />
+        <PropertyRef Name="FormNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SecMenues_SecSystems">
+    <End Role="SecSystems" Type="ResturantModel.SecSystem" Multiplicity="1" />
+    <End Role="SecMenues" Type="ResturantModel.SecMenue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SecSystems">
+        <PropertyRef Name="ModuleNo" />
+      </Principal>
+      <Dependent Role="SecMenues">
+        <PropertyRef Name="ModuleNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SecPermissions_SecUsers">
+    <End Role="SecUsers" Type="ResturantModel.SecUser" Multiplicity="1" />
+    <End Role="SecPermissions" Type="ResturantModel.SecPermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SecUsers">
+        <PropertyRef Name="UserName" />
+      </Principal>
+      <Dependent Role="SecPermissions">
+        <PropertyRef Name="UserName" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ResOrderDtlInstruction">
+    <End Role="ResInstructionCodes" Type="ResturantModel.ResInstructionCode" Multiplicity="*" />
+    <End Role="ResOrderDtl" Type="ResturantModel.ResOrderDtl" Multiplicity="*" />
+  </Association>
+</Schema>

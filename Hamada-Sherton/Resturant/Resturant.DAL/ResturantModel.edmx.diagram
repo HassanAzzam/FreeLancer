@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5ad5a4ae3f654ef2b13ba4d79b7a32b0" Name="Diagram1">
+        <EntityTypeShape EntityType="ResturantModel.ResAreaCode" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResCookStatusCode" Width="1.5" PointX="7.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResCustomer" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResCustomerType" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResDeliveryStatu" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResEmployeeBasic" Width="1.5" PointX="5.25" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResGovCode" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResInstructionCode" Width="1.5" PointX="7.5" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResItemCode" Width="1.5" PointX="7.5" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResItemType" Width="1.5" PointX="0.75" PointY="37.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResJOBCode" Width="1.5" PointX="3" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResMainCategoryCode" Width="1.5" PointX="3" PointY="36.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResMenuSalesCode" Width="1.5" PointX="5.25" PointY="28.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResOrderDtl" Width="1.5" PointX="9.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResOrderHd" Width="1.5" PointX="7.5" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResOrderStatu" Width="1.5" PointX="5.25" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResOrderType" Width="1.5" PointX="5.25" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResPayment" Width="1.5" PointX="9.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResProperty2Codes" Width="1.5" PointX="5.25" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResPropertyCode" Width="1.5" PointX="5.25" PointY="33.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResShiftsCode" Width="1.5" PointX="5.25" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResStoresCode" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResSusCategoryCode" Width="1.5" PointX="5.25" PointY="37" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResTablesCode" Width="1.5" PointX="5.25" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResTablesStatusCode" Width="1.5" PointX="3" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.ResTransType" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.SecForm" Width="1.5" PointX="14" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.SecMenue" Width="1.5" PointX="14" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.SecPermission" Width="1.5" PointX="16.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.SecSystem" Width="1.5" PointX="11.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ResturantModel.SecUser" Width="1.5" PointX="14" PointY="7.5" IsExpanded="true" />
+        <AssociationConnector Association="ResturantModel.FK_ResAreaCodes_ResGovCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_ResCustomer_ResAreaCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_ResSALES_DTL_ResKITCHEN_STATUSCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_ResCustomer_ResCustomerTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_ResSALES_HD_ResCustomer" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_ResOrderHd_ResDeliveryStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_ResEmployeeBasic_ResJOBCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_ResSALES_HD_ResEmployeeBasic" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_ResStoresCodes_ResGovCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_ResItemCodes_ResMenuSalesCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_ResItemCodes_ResProperty2Codes" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_ResItemCodes_ResPropertyCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_ResItemCodes_ResSusCategoryCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_ResSALES_DTL_ResItemCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_ResMainCategoryCodes_ResItemTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_ResSusCategoryCodes_ResMainCategoryCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_ResOrderDtl_ResOrderHd" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_ResPayment_ResOrderHd1" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_ResSALES_HD_ResOrderStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_ResSALES_HD_ResSALES_TYPES" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_ResSALES_HD_ResShiftsCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_ResSALES_HD_ResStoresCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_ResSALES_HD_ResTablesCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_ResTablesCodes_ResTablesStatusCodes" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_SecForms_SecSystems" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_SecPermissions_SecForms" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_SecMenues_SecSystems" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.FK_SecPermissions_SecUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="ResturantModel.ResOrderDtlInstruction" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
