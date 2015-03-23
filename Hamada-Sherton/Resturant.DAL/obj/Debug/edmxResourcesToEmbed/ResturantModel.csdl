@@ -23,7 +23,6 @@
     <EntitySet Name="ResPropertyCodes" EntityType="res_for_sheratonModel.ResPropertyCode" />
     <EntitySet Name="ResShiftsCodes" EntityType="res_for_sheratonModel.ResShiftsCode" />
     <EntitySet Name="ResStoresCodes" EntityType="res_for_sheratonModel.ResStoresCode" />
-    <EntitySet Name="ResSusCategoryCodes" EntityType="res_for_sheratonModel.ResSusCategoryCode" />
     <EntitySet Name="ResTablesCodes" EntityType="res_for_sheratonModel.ResTablesCode" />
     <EntitySet Name="ResTablesStatusCodes" EntityType="res_for_sheratonModel.ResTablesStatusCode" />
     <EntitySet Name="ResTransTypes" EntityType="res_for_sheratonModel.ResTransType" />
@@ -82,10 +81,6 @@
       <End Role="ResPropertyCodes" EntitySet="ResPropertyCodes" />
       <End Role="ResItemCodes" EntitySet="ResItemCodes" />
     </AssociationSet>
-    <AssociationSet Name="FK_ResItemCodes_ResSusCategoryCodes" Association="res_for_sheratonModel.FK_ResItemCodes_ResSusCategoryCodes">
-      <End Role="ResSusCategoryCodes" EntitySet="ResSusCategoryCodes" />
-      <End Role="ResItemCodes" EntitySet="ResItemCodes" />
-    </AssociationSet>
     <AssociationSet Name="FK_ResSALES_DTL_ResItemCodes" Association="res_for_sheratonModel.FK_ResSALES_DTL_ResItemCodes">
       <End Role="ResItemCodes" EntitySet="ResItemCodes" />
       <End Role="ResOrderDtl" EntitySet="ResOrderDtls" />
@@ -93,10 +88,6 @@
     <AssociationSet Name="FK_ResMainCategoryCodes_ResItemTypes" Association="res_for_sheratonModel.FK_ResMainCategoryCodes_ResItemTypes">
       <End Role="ResItemTypes" EntitySet="ResItemTypes" />
       <End Role="ResMainCategoryCodes" EntitySet="ResMainCategoryCodes" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ResSusCategoryCodes_ResMainCategoryCodes" Association="res_for_sheratonModel.FK_ResSusCategoryCodes_ResMainCategoryCodes">
-      <End Role="ResMainCategoryCodes" EntitySet="ResMainCategoryCodes" />
-      <End Role="ResSusCategoryCodes" EntitySet="ResSusCategoryCodes" />
     </AssociationSet>
     <AssociationSet Name="FK_ResOrderDtl_ResOrderHd" Association="res_for_sheratonModel.FK_ResOrderDtl_ResOrderHd">
       <End Role="ResOrderHd" EntitySet="ResOrderHds" />
@@ -149,6 +140,15 @@
     <AssociationSet Name="ResOrderDtlInstruction" Association="res_for_sheratonModel.ResOrderDtlInstruction">
       <End Role="ResInstructionCodes" EntitySet="ResInstructionCodes" />
       <End Role="ResOrderDtl" EntitySet="ResOrderDtls" />
+    </AssociationSet>
+    <EntitySet Name="ResSubCategoryCodes" EntityType="res_for_sheratonModel.ResSubCategoryCode" />
+    <AssociationSet Name="FK_ResItemCodes_ResSusCategoryCodes1" Association="res_for_sheratonModel.FK_ResItemCodes_ResSusCategoryCodes1">
+      <End Role="ResSubCategoryCode" EntitySet="ResSubCategoryCodes" />
+      <End Role="ResItemCode" EntitySet="ResItemCodes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ResSusCategoryCodes_ResMainCategoryCodes1" Association="res_for_sheratonModel.FK_ResSusCategoryCodes_ResMainCategoryCodes1">
+      <End Role="ResMainCategoryCode" EntitySet="ResMainCategoryCodes" />
+      <End Role="ResSubCategoryCode" EntitySet="ResSubCategoryCodes" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="ResAreaCode">
@@ -274,8 +274,8 @@
     <NavigationProperty Name="ResMenuSalesCode" Relationship="res_for_sheratonModel.FK_ResItemCodes_ResMenuSalesCodes" FromRole="ResItemCodes" ToRole="ResMenuSalesCodes" />
     <NavigationProperty Name="ResProperty2Codes" Relationship="res_for_sheratonModel.FK_ResItemCodes_ResProperty2Codes" FromRole="ResItemCodes" ToRole="ResProperty2Codes" />
     <NavigationProperty Name="ResPropertyCode" Relationship="res_for_sheratonModel.FK_ResItemCodes_ResPropertyCodes" FromRole="ResItemCodes" ToRole="ResPropertyCodes" />
-    <NavigationProperty Name="ResSusCategoryCode" Relationship="res_for_sheratonModel.FK_ResItemCodes_ResSusCategoryCodes" FromRole="ResItemCodes" ToRole="ResSusCategoryCodes" />
     <NavigationProperty Name="ResOrderDtls" Relationship="res_for_sheratonModel.FK_ResSALES_DTL_ResItemCodes" FromRole="ResItemCodes" ToRole="ResOrderDtl" />
+    <NavigationProperty Name="ResSubCategoryCode" Relationship="res_for_sheratonModel.FK_ResItemCodes_ResSusCategoryCodes1" FromRole="ResItemCode" ToRole="ResSubCategoryCode" />
   </EntityType>
   <EntityType Name="ResItemType">
     <Key>
@@ -312,7 +312,7 @@
     <Property Name="CountableStatus" Type="Decimal" Precision="1" Scale="0" />
     <Property Name="MainImage" Type="Binary" MaxLength="Max" FixedLength="false" />
     <NavigationProperty Name="ResItemType" Relationship="res_for_sheratonModel.FK_ResMainCategoryCodes_ResItemTypes" FromRole="ResMainCategoryCodes" ToRole="ResItemTypes" />
-    <NavigationProperty Name="ResSusCategoryCodes" Relationship="res_for_sheratonModel.FK_ResSusCategoryCodes_ResMainCategoryCodes" FromRole="ResMainCategoryCodes" ToRole="ResSusCategoryCodes" />
+    <NavigationProperty Name="ResSubCategoryCodes" Relationship="res_for_sheratonModel.FK_ResSusCategoryCodes_ResMainCategoryCodes1" FromRole="ResMainCategoryCode" ToRole="ResSubCategoryCode" />
   </EntityType>
   <EntityType Name="ResMenuSalesCode">
     <Key>
@@ -468,21 +468,6 @@
     <Property Name="CloseDt" Type="DateTime" Precision="3" />
     <NavigationProperty Name="ResGovCode" Relationship="res_for_sheratonModel.FK_ResStoresCodes_ResGovCodes" FromRole="ResStoresCodes" ToRole="ResGovCodes" />
     <NavigationProperty Name="ResOrderHds" Relationship="res_for_sheratonModel.FK_ResSALES_HD_ResStoresCodes" FromRole="ResStoresCodes" ToRole="ResOrderHd" />
-  </EntityType>
-  <EntityType Name="ResSusCategoryCode">
-    <Key>
-      <PropertyRef Name="MainCategoryId" />
-      <PropertyRef Name="SubCategoryId" />
-    </Key>
-    <Property Name="MainCategoryId" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
-    <Property Name="SubCategoryId" Type="Decimal" Nullable="false" Precision="7" Scale="0" p1:StoreGeneratedPattern="Identity" />
-    <Property Name="SubCategoryNameA" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
-    <Property Name="SubCategoryNameE" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
-    <Property Name="SubImage" Type="Binary" MaxLength="Max" FixedLength="false" />
-    <Property Name="UserName" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
-    <Property Name="InsertDt" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="ResItemCodes" Relationship="res_for_sheratonModel.FK_ResItemCodes_ResSusCategoryCodes" FromRole="ResSusCategoryCodes" ToRole="ResItemCodes" />
-    <NavigationProperty Name="ResMainCategoryCode" Relationship="res_for_sheratonModel.FK_ResSusCategoryCodes_ResMainCategoryCodes" FromRole="ResSusCategoryCodes" ToRole="ResMainCategoryCodes" />
   </EntityType>
   <EntityType Name="ResTablesCode">
     <Key>
@@ -737,20 +722,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_ResItemCodes_ResSusCategoryCodes">
-    <End Role="ResSusCategoryCodes" Type="res_for_sheratonModel.ResSusCategoryCode" Multiplicity="1" />
-    <End Role="ResItemCodes" Type="res_for_sheratonModel.ResItemCode" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ResSusCategoryCodes">
-        <PropertyRef Name="MainCategoryId" />
-        <PropertyRef Name="SubCategoryId" />
-      </Principal>
-      <Dependent Role="ResItemCodes">
-        <PropertyRef Name="MainCategoryId" />
-        <PropertyRef Name="SubCategoryId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_ResSALES_DTL_ResItemCodes">
     <End Role="ResItemCodes" Type="res_for_sheratonModel.ResItemCode" Multiplicity="1" />
     <End Role="ResOrderDtl" Type="res_for_sheratonModel.ResOrderDtl" Multiplicity="*" />
@@ -772,18 +743,6 @@
       </Principal>
       <Dependent Role="ResMainCategoryCodes">
         <PropertyRef Name="TypeId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ResSusCategoryCodes_ResMainCategoryCodes">
-    <End Role="ResMainCategoryCodes" Type="res_for_sheratonModel.ResMainCategoryCode" Multiplicity="1" />
-    <End Role="ResSusCategoryCodes" Type="res_for_sheratonModel.ResSusCategoryCode" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ResMainCategoryCodes">
-        <PropertyRef Name="MainCategoryId" />
-      </Principal>
-      <Dependent Role="ResSusCategoryCodes">
-        <PropertyRef Name="MainCategoryId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -936,5 +895,46 @@
   <Association Name="ResOrderDtlInstruction">
     <End Role="ResInstructionCodes" Type="res_for_sheratonModel.ResInstructionCode" Multiplicity="*" />
     <End Role="ResOrderDtl" Type="res_for_sheratonModel.ResOrderDtl" Multiplicity="*" />
+  </Association>
+  <EntityType Name="ResSubCategoryCode">
+    <Key>
+      <PropertyRef Name="MainCategoryId" />
+      <PropertyRef Name="SubCategoryId" />
+    </Key>
+    <Property Name="MainCategoryId" Type="Decimal" Nullable="false" Precision="3" Scale="0" />
+    <Property Name="SubCategoryId" Type="Decimal" Nullable="false" Precision="7" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubCategoryNameA" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="SubCategoryNameE" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="SubImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="InsertDt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ResItemCodes" Relationship="res_for_sheratonModel.FK_ResItemCodes_ResSusCategoryCodes1" FromRole="ResSubCategoryCode" ToRole="ResItemCode" />
+    <NavigationProperty Name="ResMainCategoryCode" Relationship="res_for_sheratonModel.FK_ResSusCategoryCodes_ResMainCategoryCodes1" FromRole="ResSubCategoryCode" ToRole="ResMainCategoryCode" />
+  </EntityType>
+  <Association Name="FK_ResItemCodes_ResSusCategoryCodes1">
+    <End Type="res_for_sheratonModel.ResSubCategoryCode" Role="ResSubCategoryCode" Multiplicity="1" />
+    <End Type="res_for_sheratonModel.ResItemCode" Role="ResItemCode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResSubCategoryCode">
+        <PropertyRef Name="MainCategoryId" />
+        <PropertyRef Name="SubCategoryId" />
+      </Principal>
+      <Dependent Role="ResItemCode">
+        <PropertyRef Name="MainCategoryId" />
+        <PropertyRef Name="SubCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ResSusCategoryCodes_ResMainCategoryCodes1">
+    <End Type="res_for_sheratonModel.ResMainCategoryCode" Role="ResMainCategoryCode" Multiplicity="1" />
+    <End Type="res_for_sheratonModel.ResSubCategoryCode" Role="ResSubCategoryCode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ResMainCategoryCode">
+        <PropertyRef Name="MainCategoryId" />
+      </Principal>
+      <Dependent Role="ResSubCategoryCode">
+        <PropertyRef Name="MainCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
 </Schema>

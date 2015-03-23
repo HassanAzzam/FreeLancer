@@ -43,7 +43,7 @@ namespace Resturant
             var user = db.SecUsers.Where(u => u.UserName == username && u.UserPasswd == password).FirstOrDefault();
             if (user == null)
             {
-                MessageBox.Show("خطاء في كلمة المرور أو اسم المستخدم");
+                MessageBox.Show("خطأ في كلمة المرور أو اسم المستخدم");
                 UsernameText.Text = "";
                 PasswordText.Password = "";
             }
@@ -63,7 +63,7 @@ namespace Resturant
             var user = db.SecUsers.Where(u => u.UserName == username && u.UserPasswd == password).FirstOrDefault();
             if (user == null)
             {
-                MessageBox.Show("خطاء في كلمة المرور أو اسم المستخدم");
+                MessageBox.Show("خطأ في كلمة المرور أو اسم المستخدم");
                 UsernameText.Text = "";
                 PasswordText.Password = "";
             }

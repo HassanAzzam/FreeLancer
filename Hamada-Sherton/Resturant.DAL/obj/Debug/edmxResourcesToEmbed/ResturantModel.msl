@@ -294,19 +294,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ResSusCategoryCodes">
-      <EntityTypeMapping TypeName="res_for_sheratonModel.ResSusCategoryCode">
-        <MappingFragment StoreEntitySet="ResSusCategoryCodes">
-          <ScalarProperty Name="MainCategoryId" ColumnName="MainCategoryId" />
-          <ScalarProperty Name="SubCategoryId" ColumnName="SubCategoryId" />
-          <ScalarProperty Name="SubCategoryNameA" ColumnName="SubCategoryNameA" />
-          <ScalarProperty Name="SubCategoryNameE" ColumnName="SubCategoryNameE" />
-          <ScalarProperty Name="SubImage" ColumnName="SubImage" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="InsertDt" ColumnName="InsertDt" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ResTablesCodes">
       <EntityTypeMapping TypeName="res_for_sheratonModel.ResTablesCode">
         <MappingFragment StoreEntitySet="ResTablesCodes">
@@ -418,5 +405,18 @@
         <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
       </EndProperty>
     </AssociationSetMapping>
+    <EntitySetMapping Name="ResSubCategoryCodes">
+      <EntityTypeMapping TypeName="res_for_sheratonModel.ResSubCategoryCode">
+        <MappingFragment StoreEntitySet="ResSubCategoryCodes">
+          <ScalarProperty Name="InsertDt" ColumnName="InsertDt" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="SubImage" ColumnName="SubImage" />
+          <ScalarProperty Name="SubCategoryNameE" ColumnName="SubCategoryNameE" />
+          <ScalarProperty Name="SubCategoryNameA" ColumnName="SubCategoryNameA" />
+          <ScalarProperty Name="SubCategoryId" ColumnName="SubCategoryId" />
+          <ScalarProperty Name="MainCategoryId" ColumnName="MainCategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

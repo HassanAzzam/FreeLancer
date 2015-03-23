@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\GitHub\FreeLancer\Hamada-Sherton\Resturant\obj\Debug\
+\\Vboxsvr\vm\Hamada-Sherton\Resturant\obj\Debug\
 Resturant
 none
 false
 DEBUG;TRACE
-E:\GitHub\FreeLancer\Hamada-Sherton\Resturant\App.xaml
-3-1625343002
+\\Vboxsvr\vm\Hamada-Sherton\Resturant\App.xaml
+61551374035
 
-11-786431747
-1813342889
-AdminWindow.xaml;LoginWindow.xaml;MainWindow.xaml;
+14-563394176
+181325974062
+AdminWindow.xaml;LoginWindow.xaml;MainWindow.xaml;NewCustomer.xaml;NewDelivery.xaml;Pilots.xaml;
 
 False
 

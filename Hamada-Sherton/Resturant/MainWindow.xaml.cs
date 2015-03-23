@@ -52,7 +52,7 @@ namespace Resturant
                 CategoryMenu.Items.Add(CategoryButtons[CategoryButtons.Count - 1]);
 
             }
-            var list1 = db.ResSusCategoryCodes.ToList();
+            var list1 = db.ResSubCategoryCodes.ToList();
             foreach (var item in list1)
             {
                 SubCategory.Add(new Button()
@@ -106,29 +106,25 @@ namespace Resturant
 
         void CatbtnClick(object sender, RoutedEventArgs e)
         {
-            SubCategory.Clear();
-            Button t = sender as Button;
-            SubMenu.Children.Clear();
             var db = new res_for_sheratonEntities();
+            Button t = sender as Button;
             var id = db.ResMainCategoryCodes.Where(it => it.MainCategoryNameA == t.Content).Select(it => it.MainCategoryId).FirstOrDefault();
-            var list = db.ResSusCategoryCodes.Where(i => i.MainCategoryId == id).ToList();
-            foreach (var item in list)
-            {
-                SubCategory.Add(new Button());
-                SubCategory[SubCategory.Count - 1].Name = "Btn";
-                SubCategory[SubCategory.Count - 1].Content = item.SubCategoryNameA;
-                SubCategory[SubCategory.Count - 1].Width = 100;
-                SubCategory[SubCategory.Count - 1].Height = 100;
-                SubCategory[SubCategory.Count - 1].Margin = new Thickness(5, 5, 0, 0);
-                SubMenu.Children.Add(SubCategory[SubCategory.Count - 1]);
-                SubCategory[SubCategory.Count - 1].Click += new RoutedEventHandler(BtnClick);
-            }
+            CategoryMenu.SelectedIndex = -1;
+            CategoryMenu.SelectedIndex = (int)id-1;
+
+            //
+
+           
         }
 
         void BtnClick(object sender, RoutedEventArgs e)
         {
             int minus = 0;
-            
+            if (SaladBox.IsChecked.Value) minus++;
+            if (KetchupBox.IsChecked.Value) minus++;
+            if (TehenaBox.IsChecked.Value) minus++;
+            if (SandwichBox.IsChecked.Value) minus++;
+
             if (Quantity == "") Quantity = "1";
             Button tmp = sender as Button;
             BillViewCat.Items.Add(tmp.Content);
@@ -212,6 +208,31 @@ namespace Resturant
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             Quantity = "";
+        }
+
+        private void CategoryMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ListView L = sender as ListView;
+            if (L.SelectedIndex == -1) return;
+
+            SubCategory.Clear();
+            SubMenu.Children.Clear();
+            var db = new res_for_sheratonEntities();
+            //var id = db.ResMainCategoryCodes.Where(it => it.MainCategoryNameA == t.Content).Select(it => it.MainCategoryId).FirstOrDefault();
+            var list = db.ResSubCategoryCodes.Where(i => i.MainCategoryId == L.SelectedIndex+1).ToList();
+            foreach (var item in list)
+            {
+                SubCategory.Add(new Button());
+                SubCategory[SubCategory.Count - 1].Name = "Btn";
+                SubCategory[SubCategory.Count - 1].Content = item.SubCategoryNameA;
+                SubCategory[SubCategory.Count - 1].Width = 100;
+                SubCategory[SubCategory.Count - 1].Height = 100;
+                SubCategory[SubCategory.Count - 1].Margin = new Thickness(5, 5, 0, 0);
+                SubMenu.Children.Add(SubCategory[SubCategory.Count - 1]);
+                SubCategory[SubCategory.Count - 1].Click += new RoutedEventHandler(BtnClick);
+            }
+
+
         }
 
 

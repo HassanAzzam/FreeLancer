@@ -113,7 +113,7 @@
     <Compile Include="ResStoresCode.cs">
       <DependentUpon>ResturantModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ResSusCategoryCode.cs">
+    <Compile Include="ResSubCategoryCode.cs">
       <DependentUpon>ResturantModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ResTablesCode.cs">
