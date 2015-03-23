@@ -15,14 +15,11 @@
             <ColumnDefinition Width="345*"/>
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="ButtonExit" Grid.ColumnSpan="2" Content="خروج" HorizontalAlignment="Left" Height="43" Margin="41,308,0,0" Grid.Row="2" VerticalAlignment="Top" Width="106" Foreground="#FFFEFEFE" FontSize="24" FontWeight="Medium" Click="Button_Click" Cursor="Hand" MouseEnter="Button_MouseEnter" Background="#FF3C3C3C" VerticalContentAlignment="Stretch"/>
+        <Button x:Name="ButtonExit" Grid.ColumnSpan="2" Content="خروج" HorizontalAlignment="Left" Height="43" Margin="10,332,0,0" Grid.Row="2" VerticalAlignment="Top" Width="106" Foreground="#FFFEFEFE" FontSize="24" FontWeight="Medium" Click="Button_Click" Cursor="Hand" MouseEnter="Button_MouseEnter" Background="#FF3C3C3C" VerticalContentAlignment="Stretch"/>
         <Rectangle Fill="#FFFDFDFD" HorizontalAlignment="Left" Height="277" Margin="10,108,0,0" Grid.Row="2" VerticalAlignment="Top" Width="335" Grid.Column="2"/>
-        <Label Content=": الإجمالى" HorizontalAlignment="Left" Height="46" Margin="160,273,0,0" Grid.Row="2" VerticalAlignment="Top" Width="133" Foreground="White" FontSize="30" Grid.Column="2"/>
-        <Button Content="دليفري" HorizontalAlignment="Left" Height="31" Margin="54,320,0,0" Grid.Row="2" VerticalAlignment="Top" Width="70" Grid.Column="2" Background="#FF3C3C3C" Foreground="White" FontWeight="Medium"/>
-        <Button Content="الغاء" HorizontalAlignment="Left" Height="31" Margin="137,320,0,0" Grid.Row="2" VerticalAlignment="Top" Width="70" Grid.Column="2" Background="#FF3C3C3C" Foreground="White" FontWeight="Medium"/>
-        <Button Content="دفع" HorizontalAlignment="Left" Height="31" Margin="223,320,0,0" Grid.Row="2" VerticalAlignment="Top" Width="70" Grid.Column="2" Background="#FF3C3C3C" Foreground="White" FontWeight="Medium"/>
-        <Label x:Name="TotalPay" Content="0.00" HorizontalAlignment="Left" Height="47" Margin="71,273,0,0" Grid.Row="2" VerticalAlignment="Top" Width="69" Foreground="White" FontSize="30" Grid.Column="2"/>
-        <ListView x:Name="CategoryMenu" Grid.ColumnSpan="3" Height="167" Grid.RowSpan="2" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,-21,334,0" VerticalAlignment="Top" HorizontalContentAlignment="Stretch" >
+        <Label Content=": الإجمالى" HorizontalAlignment="Left" Height="46" Margin="169,273,0,0" Grid.Row="2" VerticalAlignment="Top" Width="152" Foreground="White" FontSize="30" Grid.Column="2" Background="#FF3C3C3C"/>
+        <Label x:Name="TotalPay" Content="0.00" HorizontalAlignment="Left" Height="47" Margin="31,273,0,0" Grid.Row="2" VerticalAlignment="Top" Width="138" Foreground="White" FontSize="30" Grid.Column="2" Background="#FF3C3C3C"/>
+        <ListView x:Name="CategoryMenu" Grid.ColumnSpan="3" Height="118" Grid.RowSpan="2" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,-21,334,0" VerticalAlignment="Top" HorizontalContentAlignment="Stretch" >
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <VirtualizingStackPanel IsItemsHost="True"  Orientation="Horizontal"/>
@@ -34,7 +31,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <WrapPanel x:Name="SubMenu" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="523" Margin="0,146,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="1037" Background="#FF3C3C3C" FlowDirection="RightToLeft"/>
+        <WrapPanel x:Name="SubMenu" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="602" Margin="0,102,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="1037" Background="#FF3C3C3C" FlowDirection="RightToLeft"/>
         <ListView x:Name="BillViewCat" HorizontalAlignment="Left" Height="492" Margin="111,0,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="231" FlowDirection="RightToLeft" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Column="2" FontSize="16" FontWeight="Medium" >
             <ListView.View>
                 <GridView>
@@ -67,10 +64,9 @@
         <Button x:Name="QuantityBtn5" Content="6" Grid.Column="2" HorizontalAlignment="Left" Margin="89,184,0,0" Grid.Row="2" VerticalAlignment="Top" Width="50" Height="50" FontSize="18" FontWeight="Bold" Background="#FF3C3C3C" Foreground="#FFF9F9F9" Click="QuantityBtn5_Click"/>
         <Button x:Name="QuantityBtn4" Content="5" Grid.Column="2" HorizontalAlignment="Left" Margin="31,184,0,0" Grid.Row="2" VerticalAlignment="Top" Width="50" Height="50" FontSize="18" FontWeight="Bold" Background="#FF3C3C3C" Foreground="#FFF3EBEB" Click="QuantityBtn4_Click"/>
         <Button x:Name="QuantityRes" Content="مسح" Grid.Column="2" HorizontalAlignment="Left" Height="31" Margin="31,244,0,0" Grid.Row="2" VerticalAlignment="Top" Width="290" FontSize="18" FontWeight="Medium" Background="#FF3C3C3C" Foreground="White" Click="Button_Click_2"/>
-        <CheckBox x:Name="SaladBox" Grid.ColumnSpan="2" Content="بدون سلطة" Margin="896,327,28,39" Grid.Row="2" FontSize="14" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Cursor="Hand" FlowDirection="RightToLeft" />
-        <CheckBox x:Name="KetchupBox" Grid.ColumnSpan="2" Content="بدون كاتشب" Margin="764,327,160,39" Grid.Row="2" FontSize="14" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Cursor="Hand" FlowDirection="RightToLeft"/>
-        <CheckBox x:Name="TehenaBox" Grid.ColumnSpan="2" Content="بدون طحينة" Margin="630,327,294,39" Grid.Row="2" FontSize="14" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Cursor="Hand" FlowDirection="RightToLeft"/>
-        <CheckBox x:Name="SandwichBox" Grid.ColumnSpan="2" Content="بدون مايونيز" Margin="475,327,425,39" Grid.Row="2" FontSize="14" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Cursor="Hand" FlowDirection="RightToLeft"/>
+        <Button Content="دليفري" HorizontalAlignment="Left" Height="43" Margin="763,332,0,0" Grid.Row="2" VerticalAlignment="Top" Width="70" Grid.Column="1" Background="#FF3C3C3C" Foreground="White" FontWeight="Medium"/>
+        <Button Content="الغاء" HorizontalAlignment="Left" Height="43" Margin="846,332,0,0" Grid.Row="2" VerticalAlignment="Top" Width="70" Grid.Column="1" Background="#FF3C3C3C" Foreground="White" FontWeight="Medium"/>
+        <Button Content="دفع" HorizontalAlignment="Left" Height="43" Margin="932,332,0,0" Grid.Row="2" VerticalAlignment="Top" Width="70" Grid.Column="1" Background="#FF3C3C3C" Foreground="White" FontWeight="Medium"/>
 
     </Grid>
 </Window>
