@@ -40,7 +40,55 @@ namespace Resturant {
     public partial class NewCustomer : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
         
-        #line 28 "..\..\NewCustomer.xaml"
+        #line 8 "..\..\NewCustomer.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Grid Gr;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 17 "..\..\NewCustomer.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label PhoneLbl;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 18 "..\..\NewCustomer.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox PhoneTB;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 19 "..\..\NewCustomer.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Shapes.Rectangle PlusBtn1;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 20 "..\..\NewCustomer.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Shapes.Rectangle PlusBtn;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 31 "..\..\NewCustomer.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Grid Gr2;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 38 "..\..\NewCustomer.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button NewOrderBtn;
         
@@ -78,9 +126,39 @@ namespace Resturant {
             switch (connectionId)
             {
             case 1:
+            this.Gr = ((System.Windows.Controls.Grid)(target));
+            return;
+            case 2:
+            this.PhoneLbl = ((System.Windows.Controls.Label)(target));
+            return;
+            case 3:
+            this.PhoneTB = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 4:
+            this.PlusBtn1 = ((System.Windows.Shapes.Rectangle)(target));
+            
+            #line 19 "..\..\NewCustomer.xaml"
+            this.PlusBtn1.MouseDown += new System.Windows.Input.MouseButtonEventHandler(this.PlusBtn_MouseDown);
+            
+            #line default
+            #line hidden
+            return;
+            case 5:
+            this.PlusBtn = ((System.Windows.Shapes.Rectangle)(target));
+            
+            #line 20 "..\..\NewCustomer.xaml"
+            this.PlusBtn.MouseDown += new System.Windows.Input.MouseButtonEventHandler(this.PlusBtn_MouseDown);
+            
+            #line default
+            #line hidden
+            return;
+            case 6:
+            this.Gr2 = ((System.Windows.Controls.Grid)(target));
+            return;
+            case 7:
             this.NewOrderBtn = ((System.Windows.Controls.Button)(target));
             
-            #line 28 "..\..\NewCustomer.xaml"
+            #line 38 "..\..\NewCustomer.xaml"
             this.NewOrderBtn.Click += new System.Windows.RoutedEventHandler(this.NewOrderBtn_Click);
             
             #line default
