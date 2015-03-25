@@ -19,9 +19,11 @@ namespace Resturant
     /// </summary>
     public partial class NewCustomer : Window
     {
+        int PhoneNums;
         public NewCustomer()
         {
             InitializeComponent();
+            PhoneNums = 1;
         }
 
         private void NewOrderBtn_Click(object sender, RoutedEventArgs e)
@@ -31,7 +33,23 @@ namespace Resturant
             //      adding new row in customer table.
             //
             //
-            //
+        }
+
+        private void PlusBtn_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Height += 60;
+            this.Gr.Height += 60;
+            TranslateTransform tt = new TranslateTransform(0,  PhoneNums*60);
+            Gr2.RenderTransform = tt;
+            var tb = new TextBox() { VerticalAlignment = VerticalAlignment.Top, Margin = new Thickness(0, 120 + (PhoneNums * 60), 111, 0), Text = "", Width = 534, Height = 24, FontWeight = FontWeights.Medium, FontSize = 16, };
+            Gr.Children.Add(tb);
+            Label L = new Label() { VerticalAlignment = VerticalAlignment.Top, HorizontalAlignment = HorizontalAlignment.Right, Margin = new Thickness(0, 115+(PhoneNums*60), -360, 0), Width = 534, Height = 35, FontWeight = FontWeights.Medium, FontSize = 16, };
+            Gr.Children.Add(L);
+           
+            PhoneNums++;
+            L.Content = ": " + PhoneNums.ToString() + "رقـم الهـاتـف";
+            
+            
         }
     }
 }

@@ -5,7 +5,7 @@
     <Window.Effect>
         <DropShadowEffect ShadowDepth="0" BlurRadius="27" Direction="0"/>
     </Window.Effect>
-    <Grid x:Name="Gr" Margin="0,0,-8,-6" Height="448" VerticalAlignment="Top" HorizontalAlignment="Left" Width="793">
+    <Grid x:Name="Gr" Margin="0,0,-8,-6" Height="448" VerticalAlignment="Top" HorizontalAlignment="Left" Width="793" Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="448"/>
         </Grid.RowDefinitions>
@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
         <Label Content=": الاســــــــــــــــم" Margin="0,57,72,0" VerticalAlignment="Top" FontSize="16" FontWeight="Medium" HorizontalContentAlignment="Right" Height="32" HorizontalAlignment="Right" Width="97"/>
         <TextBox HorizontalAlignment="Left" Height="24" Margin="74,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="534" FontSize="16" FontFamily="Segoe UI" FontWeight="Medium"/>
-        <Label x:Name="PhoneLbl" Content=": رقـم الـهـاتـف " Margin="625,116,51,0" VerticalAlignment="Top" FontSize="16" FontWeight="Medium"/>
+        <Label x:Name="PhoneLbl" Content=": رقـم الـهـاتـف " Margin="625,116,60,0" VerticalAlignment="Top" FontSize="16" FontWeight="Medium"/>
         <TextBox x:Name="PhoneTB" Height="24" Margin="0,122,185,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" FontWeight="Medium" HorizontalAlignment="Right" Width="534"/>
         <Rectangle x:Name="PlusBtn1" Fill="#FF2893FF" HorizontalAlignment="Left" Height="31" Margin="32,119,0,0" VerticalAlignment="Top" Width="11" MouseDown="PlusBtn_MouseDown" />
         <Rectangle x:Name="PlusBtn" Fill="#FF2893FF" HorizontalAlignment="Left" Height="31" Margin="32,119,0,0" VerticalAlignment="Top" Width="11" RenderTransformOrigin="0.5,0.5" MouseDown="PlusBtn_MouseDown" >
@@ -28,7 +28,7 @@
             </Rectangle.RenderTransform>
         </Rectangle>
         <Grid Margin="0,174,0,-11">
-            <Grid x:Name="Gr2" HorizontalAlignment="Left" Height="285" VerticalAlignment="Top" Width="793">
+            <Grid x:Name="Gr2" HorizontalAlignment="Left" Width="793" Margin="0,-4,0,14" Height="275" VerticalAlignment="Bottom" Background="White">
                 <Label Content=": الـــعـــــنــــوان" HorizontalAlignment="Right" Margin="0,11,72,0" VerticalAlignment="Top" FontSize="16" FontWeight="Medium" HorizontalContentAlignment="Right" Height="32" Width="96"/>
                 <Label Content=": علامة مميزة" Margin="0,66,72,0" VerticalAlignment="Top" FontSize="16" FontWeight="Medium" HorizontalContentAlignment="Right" Height="46" HorizontalAlignment="Right" Width="96"/>
                 <Label Content=": الـمــنــطــقــة" HorizontalAlignment="Right" Margin="0,117,72,0" VerticalAlignment="Top" FontSize="16" FontWeight="Medium" HorizontalContentAlignment="Right" Height="30" Width="114" RenderTransformOrigin="0.5,0.5"/>
