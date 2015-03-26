@@ -17,6 +17,8 @@ namespace Resturant
     /// <summary>
     /// Interaction logic for NewCustomer.xaml
     /// </summary>
+    /// 
+
     public partial class NewCustomer : Window
     {
         int PhoneNums;
@@ -51,5 +53,16 @@ namespace Resturant
             
             
         }
+
+        private void Rectangle_MouseEnter(object sender, MouseEventArgs e)
+        {
+            NewCustBtn.Fill = (Brush)new BrushConverter().ConvertFrom("#FF0072E6");
+        }
+
+        private void Rectangle_MouseLeave(object sender, MouseEventArgs e)
+        {
+            NewCustBtn.Fill = (Brush)new BrushConverter().ConvertFrom("#FF2893FF");
+        }
+
     }
 }

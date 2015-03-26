@@ -28,14 +28,15 @@
             </Rectangle.RenderTransform>
         </Rectangle>
         <Grid Margin="0,174,0,-11">
-            <Grid x:Name="Gr2" HorizontalAlignment="Left" Width="793" Margin="0,-4,0,14" Height="275" VerticalAlignment="Bottom" Background="White">
+            <Grid x:Name="Gr2" HorizontalAlignment="Left" Width="793" Margin="0,-12,0,22" Height="275" VerticalAlignment="Bottom" Background="White">
                 <Label Content=": الـــعـــــنــــوان" HorizontalAlignment="Right" Margin="0,11,72,0" VerticalAlignment="Top" FontSize="16" FontWeight="Medium" HorizontalContentAlignment="Right" Height="32" Width="96"/>
                 <Label Content=": علامة مميزة" Margin="0,66,72,0" VerticalAlignment="Top" FontSize="16" FontWeight="Medium" HorizontalContentAlignment="Right" Height="46" HorizontalAlignment="Right" Width="96"/>
                 <Label Content=": الـمــنــطــقــة" HorizontalAlignment="Right" Margin="0,117,72,0" VerticalAlignment="Top" FontSize="16" FontWeight="Medium" HorizontalContentAlignment="Right" Height="30" Width="114" RenderTransformOrigin="0.5,0.5"/>
                 <TextBox HorizontalAlignment="Left" Height="24" Margin="74,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="534" FontSize="16" FontFamily="Segoe UI" FontWeight="Medium"/>
                 <TextBox HorizontalAlignment="Left" Height="24" Margin="74,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="534" FontSize="16" FontFamily="Segoe UI" FontWeight="Medium"/>
                 <TextBox HorizontalAlignment="Left" Height="24" Margin="74,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="534" FontSize="16" FontFamily="Segoe UI" FontWeight="Medium"/>
-                <Button x:Name="NewOrderBtn" Content="طلب جديد" HorizontalAlignment="Left" Margin="250,185,0,0" VerticalAlignment="Top" Width="294" Height="60" FontSize="16" FontWeight="Medium" Click="NewOrderBtn_Click"/>
+                <Rectangle x:Name="NewCustBtn" Fill="#FF2893FF" Height="60" Margin="250,185,249,0" VerticalAlignment="Top" MouseEnter="Rectangle_MouseEnter" MouseLeave="Rectangle_MouseLeave"/>
+                <TextBlock Height="28" Margin="342,202,343,0" TextWrapping="Wrap" Text="إضافة العميل" VerticalAlignment="Top" FontSize="18" Foreground="White" FontWeight="Medium" MouseEnter="Rectangle_MouseEnter"/>
             </Grid>
 
         </Grid>
