@@ -79,6 +79,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CustomButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -93,6 +97,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CustomButton.xaml.cs">
+      <DependentUpon>CustomButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -109,9 +116,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PilotsCheck.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pilots.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -120,6 +135,9 @@
     </Compile>
     <Compile Include="NewDelivery.xaml.cs">
       <DependentUpon>NewDelivery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PilotsCheck.xaml.cs">
+      <DependentUpon>PilotsCheck.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pilots.xaml.cs">
       <DependentUpon>Pilots.xaml</DependentUpon>

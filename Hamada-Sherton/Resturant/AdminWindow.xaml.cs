@@ -19,9 +19,22 @@ namespace Resturant
     /// </summary>
     public partial class AdminWindow : Window
     {
+        CustomButton SelectedOption;
         public AdminWindow()
         {
             InitializeComponent();
+            SelectedOption = null;
+            CustomButton btn = new CustomButton() { Text = "حسابات الدليفري",TextSize=18, TextShiftUp=-2, TextAlignment = TextAlignment.Right, Width = Options.Width, Height = 60, Background = Brushes.White, Foreground = (Brush)new BrushConverter().ConvertFrom("#FF0367BB"), HighlightedBackground = (Brush)new BrushConverter().ConvertFrom("#FF0367BB"), HighlightedForeground = Brushes.White, };
+            Options.Children.Add(btn);
+            btn.MouseDown += btn_MouseDown;
+        }
+        void btn_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (SelectedOption != null) SelectedOption.UnHighlight();
+            SelectedOption = (CustomButton)sender;
+            SelectedOption.Highlight();
+            Gr2.Children.Add(new PilotsCheck(this));
+
         }
     }
 }

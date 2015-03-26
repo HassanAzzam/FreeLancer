@@ -119,11 +119,6 @@ namespace Resturant
 
         void BtnClick(object sender, RoutedEventArgs e)
         {
-            int minus = 0;
-            if (SaladBox.IsChecked.Value) minus++;
-            if (KetchupBox.IsChecked.Value) minus++;
-            if (TehenaBox.IsChecked.Value) minus++;
-            if (SandwichBox.IsChecked.Value) minus++;
 
             if (Quantity == "") Quantity = "1";
             Button tmp = sender as Button;

@@ -22,28 +22,33 @@ namespace Resturant
     {
         Thickness Thick;
         Brush Bkup_BG, Bkup_FG, Bkup_HB, Bkup_HF;
-        const int H = 14;
+        double H = 16;
         public CustomButton(){
             InitializeComponent();
+            rec.Width = Gr.Width;
+            rec.Height = Gr.Height;
+            rec.Margin = Gr.Margin;
             Thick = new Thickness(rec.Width / 10, (rec.Height / 2) - H, 0, 0);
-          
+            H = tx.FontSize -4;
             tx.Width = 8 * rec.Width / 10;
             tx.Height = (rec.Height / 2) + H;
             tx.Margin = Thick;
             Bkup_HB = (Brush)new BrushConverter().ConvertFrom("#FF0367BB");
             Bkup_HF = Brushes.White;
+           
         }
 
         public string Text { get { return tx.Text; } set { tx.Text = value; } }
-        public double Width { get { return rec.Width; } set { rec.Width = value;  tx.Width = 8 * rec.Width / 10; Thick.Left = rec.Width/ 10; tx.Margin = Thick; } }
-        public double Height { get { return rec.Height; } set { rec.Height = value;  tx.Height = (rec.Height / 2) + H; Thick.Top = (rec.Height / 2) - H; tx.Margin = Thick; } }
+        public double Width { get { return rec.Width; } set { rec.Width = Gr.Width = value;  tx.Width = 8 * rec.Width / 10; Thick.Left = rec.Width/ 10; tx.Margin = Thick; } }
+        public double Height { get { return rec.Height; } set { rec.Height = Gr.Height = value; tx.Height = (rec.Height / 2) + H; Thick.Top = (rec.Height / 2) - H; tx.Margin = Thick; } }
         public Brush Background { get { return rec.Fill; } set { rec.Fill = value; } }
         public Brush HighlightedBackground { get { return Bkup_HB; } set { Bkup_HB = value; } }
         public Brush HighlightedForeground { get { return Bkup_HF; } set { Bkup_HF = value; } }
         public Brush Foreground { get { return tx.Foreground; } set { tx.Foreground = value; } }
-        public Thickness Margin { get { return rec.Margin; } set { rec.Margin = value; value.Left += tx.Margin.Left; value.Right += tx.Margin.Right; value.Bottom += tx.Margin.Bottom; value.Top += tx.Margin.Top; tx.Margin = value; } }
-        public double TextSize { get { return tx.FontSize; } set { tx.FontSize = value; } }
+        public Thickness Margin { get { return rec.Margin; } set { rec.Margin = Gr.Margin= value; value.Left += tx.Margin.Left; value.Right += tx.Margin.Right; value.Bottom += tx.Margin.Bottom; value.Top += tx.Margin.Top; tx.Margin = value; } }
+        public double TextSize { get { return tx.FontSize; } set { tx.FontSize =H= value; } }
         public TextAlignment TextAlignment { get { return tx.TextAlignment; } set { tx.TextAlignment = value; } }
+        public double TextShiftUp { get { return H - tx.FontSize; } set { H = tx.FontSize + value; tx.Height = (rec.Height / 2) + H; Thick.Top = (rec.Height / 2) - H; tx.Margin = Thick; } }
 
         public void Highlight()
         {

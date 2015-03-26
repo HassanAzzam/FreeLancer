@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 \\Vboxsvr\vm\GitHub\FreeLancer\Hamada-Sherton\Resturant\App.xaml
-61551374035
+91401814827
 
-14-563394176
+16619763073
 181291831144
-AdminWindow.xaml;LoginWindow.xaml;MainWindow.xaml;NewCustomer.xaml;NewDelivery.xaml;Pilots.xaml;
+AdminWindow.xaml;CustomButton.xaml;LoginWindow.xaml;MainWindow.xaml;NewCustomer.xaml;NewDelivery.xaml;PilotsCheck.xaml;Pilots.xaml;Themes\Generic.xaml;
 
 False
 
