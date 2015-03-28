@@ -49,6 +49,7 @@ namespace Resturant
         public double TextSize { get { return tx.FontSize; } set { tx.FontSize =H= value; } }
         public TextAlignment TextAlignment { get { return tx.TextAlignment; } set { tx.TextAlignment = value; } }
         public double TextShiftUp { get { return H - tx.FontSize; } set { H = tx.FontSize + value; tx.Height = (rec.Height / 2) + H; Thick.Top = (rec.Height / 2) - H; tx.Margin = Thick; } }
+        public string Name { get { return rec.Name; } set { rec.Name = value; } }
 
         public void Highlight()
         {

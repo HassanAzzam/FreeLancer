@@ -21,214 +21,199 @@ namespace Resturant
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Button> SubCategory;
-        List<Button> CategoryButtons;
+        List<CustomButton> SubCategory;
+        List<CustomButton> CategoryButtons;
         string Quantity;
         float Total;
+        CustomButton SelectedCat, SelectedSubCat;
         public MainWindow()
         {
             InitializeComponent();
+
+            #region NumPad Buttons
+
+            for (int i = 0; i < 10; i++)
+            {
+                CustomButton QB = new CustomButton() { 
+                Name = "QuantityBtn",
+                Width=60,
+                Height=60,
+                Background = (Brush)new BrushConverter().ConvertFrom("#FF0051BB"),
+                HorizontalAlignment = HorizontalAlignment.Left,
+                VerticalAlignment = VerticalAlignment.Top,
+                Margin = new Thickness(5, 5, 0, 0),
+                Text=(i+1).ToString()[((i+1).ToString()).Length - 1].ToString(),
+                };
+                NumPad.Children.Add(QB);
+                QB.MouseDown += QB_MouseDown;
+            }
+            CustomButton QR = new CustomButton()
+            {
+                Name = "QuantityResetBtn",
+                Width = 125,
+                Height = 60,
+                Background = (Brush)new BrushConverter().ConvertFrom("#FF0051BB"),
+                HorizontalAlignment = HorizontalAlignment.Left,
+                VerticalAlignment = VerticalAlignment.Top,
+                Margin = new Thickness(5, 5, 0, 0),
+                Text = "مسح",
+            };
+            NumPad.Children.Add(QR);
+            QR.MouseDown += QuantityReset;
+            #endregion
+
+            #region Action Buttons
+
+            for (int i = 0; i < 3; i++)
+            {
+                CustomButton ActionBtn = new CustomButton()
+                {
+                    Name = "ActionBtn",
+                    Width = 168,
+                    Height = 60,
+                    Background = (Brush)new BrushConverter().ConvertFrom("#FF0051BB"),
+                    HorizontalAlignment = HorizontalAlignment.Left,
+                    VerticalAlignment = VerticalAlignment.Top,
+                    Margin = new Thickness(0, 5, 0, 0),
+                };
+                if (i == 0) { ActionBtn.Text = "دفع"; ActionBtn.Background = (Brush)new BrushConverter().ConvertFrom("#FF027421"); } if (i == 1) { ActionBtn.Text = "دليفري"; ActionBtn.Background = (Brush)new BrushConverter().ConvertFrom("#FFDEA200"); } if (i == 2) { ActionBtn.Text = "إلغاء"; ActionBtn.Background = (Brush)new BrushConverter().ConvertFrom("#FFA00000"); }
+                Actions.Children.Add(ActionBtn);
+                ActionBtn.MouseDown += Action_MouseDown;
+            }
+
+            #endregion
+
+            #region Exit Button
+
+            CustomButton ExitBtn = new CustomButton()
+            {
+                Name = "ExitBtn",
+                Width = 150,
+                Height = 60,
+                TextShiftUp = 3,
+                Background = (Brush)new BrushConverter().ConvertFrom("#FF0051BB"),
+                HorizontalAlignment = HorizontalAlignment.Left,
+                VerticalAlignment = VerticalAlignment.Top,
+                Margin = new Thickness(10, 15, 0, 0),
+                Text="خروج",
+            };
+            Ext.Children.Add(ExitBtn);
+            ExitBtn.MouseDown += ExitBtn_MouseDown;
+
+            #endregion
+
+
             Quantity = "";
             Total = 0;
-            SubCategory = new List<Button>();
-            CategoryButtons = new List<Button>();
+            SubCategory = new List<CustomButton>();
+            CategoryButtons = new List<CustomButton>();
             var db = new res_for_sheratonEntities();
             var list = db.ResMainCategoryCodes.ToList();
             foreach (var item in list)
             {
 
-                CategoryButtons.Add(new Button()
+                CategoryButtons.Add(new CustomButton()
                 {
                     Name = "Catbtn",
-                    Content = item.MainCategoryNameA,
-                    Width = 150,
-                    Height = 100,
+                    Text = item.MainCategoryNameA,
+                    Width = CategoryMenu.Height,
+                    Height = CategoryMenu.Height - 10,
+                    VerticalAlignment = VerticalAlignment.Bottom,
                     Margin = new Thickness(0,0 , 0, 0),
-                    HorizontalAlignment = HorizontalAlignment.Right,
                     FontSize= 20,
-
+                    Background = (Brush)new BrushConverter().ConvertFrom("#FFA6A6A6"),
+                    HighlightedBackground = (Brush)new BrushConverter().ConvertFrom("#FF0051BB"),
+                    HighlightedForeground = Brushes.White,
                 });
-                CategoryButtons[CategoryButtons.Count - 1].Click += new RoutedEventHandler(CatbtnClick);
-                CategoryMenu.Items.Add(CategoryButtons[CategoryButtons.Count - 1]);
+                CategoryButtons[CategoryButtons.Count - 1].MouseDown += new MouseButtonEventHandler(CatBtnClick);
+                CategoryMenu.Children.Add(CategoryButtons[CategoryButtons.Count - 1]);
 
             }
             var list1 = db.ResSubCategoryCodes.ToList();
             foreach (var item in list1)
             {
-                SubCategory.Add(new Button()
+                SubCategory.Add(new CustomButton()
                 {
                     Name = "Btn",
-                    Content = item.SubCategoryNameA,
-                    Width = 98,
-                    Height = 98,
+                    Text = item.SubCategoryNameA,
+                    Width = 110,
+                    Height = 110,
+                    FontSize = 14,
+                    TextShiftUp = 6,
                     Margin = new Thickness(5, 5, 0, 0),
-                    HorizontalAlignment = HorizontalAlignment.Right,
+                    Background = (Brush)new BrushConverter().ConvertFrom("#FF0051BB"),
                 });
                 SubMenu.Children.Add(SubCategory[SubCategory.Count - 1]);
-                SubCategory[SubCategory.Count - 1].Click += new RoutedEventHandler(BtnClick);
+                SubCategory[SubCategory.Count - 1].MouseDown += new MouseButtonEventHandler(SubCatBtnClick);
             }
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        void ExitBtn_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Application.Current.Shutdown();
+            this.Close();
         }
 
-        private void Button_MouseEnter(object sender, MouseEventArgs e)
+        void QB_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            CustomButton tmp = sender as CustomButton;
+            if(Quantity!=""||tmp.Text!="0")Quantity += tmp.Text;
         }
-
-        private void ButtonCheck_Click(object sender, RoutedEventArgs e)
-        {
-            ////arr.Add(new Button());
-            ////arr[arr.Count - 1].Name = "Btn";
-            ////arr[arr.Count - 1].Content = "فول";
-            ////arr[arr.Count - 1].Width = 100;
-            ////arr[arr.Count - 1].Height = 100;
-            ////arr[arr.Count - 1].Margin = new Thickness(5, 5, 0, 0);
-            ////SubMenu.Children.Add(arr[arr.Count - 1]);
-            ////arr[arr.Count - 1].Click += new RoutedEventHandler(BtnClick);
-
-
-            //CategoryButtons.Add(new Button());
-            //CategoryButtons[CategoryButtons.Count - 1].Name = "Catbtn";
-            //CategoryButtons[CategoryButtons.Count - 1].Content = "Catbtn";
-            //CategoryButtons[CategoryButtons.Count - 1].Width = 250;
-            //CategoryButtons[CategoryButtons.Count - 1].Height = 150;
-            //CategoryButtons[CategoryButtons.Count - 1].Margin = new Thickness(5, 5, 0, 0);
-            //CategoryButtons[CategoryButtons.Count - 1].Click += new RoutedEventHandler(CatbtnClick);
-            //CategoryMenu.Items.Add(CategoryButtons[CategoryButtons.Count - 1]);
-
-        }
-
-
-        void CatbtnClick(object sender, RoutedEventArgs e)
+        
+        void CatBtnClick(object sender, MouseEventArgs e)
         {
             var db = new res_for_sheratonEntities();
-            Button t = sender as Button;
-            var id = db.ResMainCategoryCodes.Where(it => it.MainCategoryNameA == t.Content).Select(it => it.MainCategoryId).FirstOrDefault();
-            CategoryMenu.SelectedIndex = -1;
-            CategoryMenu.SelectedIndex = (int)id-1;
-
-            //
-
+            if (SelectedCat != null) { SelectedCat.UnHighlight(); SelectedCat.Height -= 10; }
+            SelectedCat = (CustomButton)sender;
+            SelectedCat.Highlight(); SelectedCat.Height += 10;
+            var id = db.ResMainCategoryCodes.Where(it => it.MainCategoryNameA == SelectedCat.Text).Select(it => it.MainCategoryId).FirstOrDefault();
+            SubCategory.Clear();
+            SubMenu.Children.Clear();
+            var list = db.ResSubCategoryCodes.Where(i => i.MainCategoryId == id).ToList();
+            foreach (var item in list)
+            {
+                SubCategory.Add(new CustomButton(){
+                    Name = "Btn",
+                    Text = item.SubCategoryNameA,
+                    Width = 110,
+                    Height = 110,
+                    FontSize = 14,
+                    TextShiftUp = 6,
+                    Margin = new Thickness(5, 5, 0, 0),
+                    Background = (Brush)new BrushConverter().ConvertFrom("#FF0051BB"),
+                });
+                SubMenu.Children.Add(SubCategory[SubCategory.Count - 1]);
+                SubCategory[SubCategory.Count - 1].MouseDown += new MouseButtonEventHandler(SubCatBtnClick);
+            } 
            
         }
 
-        void BtnClick(object sender, RoutedEventArgs e)
+        void SubCatBtnClick(object sender, RoutedEventArgs e)
         {
-
             if (Quantity == "") Quantity = "1";
-            Button tmp = sender as Button;
-            BillViewCat.Items.Add(tmp.Content);
-            BillViewNum.Items.Add(Quantity);
+            CustomButton tmp = sender as CustomButton;
+            BillView.Children.Add(new Label() { Content=tmp.Text,HorizontalContentAlignment=HorizontalAlignment.Left,VerticalContentAlignment=VerticalAlignment.Center, Foreground=tmp.Background, FontSize = 16, FontWeight = FontWeights.Medium, Width=235, Height =40, });
+            BillView.Children.Add(new Label() { Content = Quantity.ToString(), HorizontalContentAlignment = HorizontalAlignment.Center, VerticalContentAlignment = VerticalAlignment.Center, Foreground = tmp.Background, FontSize = 16, FontWeight = FontWeights.Medium, Width = 95, Height = 40, });
             int cost= int.Parse(Quantity)*2;
-            BillViewCost.Items.Add(cost.ToString());
+            BillView.Children.Add(new Label() { Content = cost.ToString(), HorizontalContentAlignment = HorizontalAlignment.Center, VerticalContentAlignment = VerticalAlignment.Center, Foreground = tmp.Background, FontSize = 16, FontWeight = FontWeights.Medium, Width = 111, Height = 40, });
             Quantity = "";
             Total += cost;
             TotalPay.Content = Total.ToString();
         }
 
-        private void QuantityBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Button tmp = sender as Button;
-            Quantity += tmp.Content;
-        }
-
-        private void QuantityBtn0_Click(object sender, RoutedEventArgs e)
-        {
-
-            Button tmp = sender as Button;
-            Quantity += tmp.Content;
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-            Button tmp = sender as Button;
-            Quantity += tmp.Content;
-        }
-
-        private void QuantityBtn2_Click(object sender, RoutedEventArgs e)
-        {
-
-            Button tmp = sender as Button;
-            Quantity += tmp.Content;
-        }
-
-        private void QuantityBtn3_Click(object sender, RoutedEventArgs e)
-        {
-
-            Button tmp = sender as Button;
-            Quantity += tmp.Content;
-        }
-
-        private void QuantityBtn4_Click(object sender, RoutedEventArgs e)
-        {
-
-            Button tmp = sender as Button;
-            Quantity += tmp.Content;
-        }
-
-        private void QuantityBtn5_Click(object sender, RoutedEventArgs e)
-        {
-
-            Button tmp = sender as Button;
-            Quantity += tmp.Content;
-        }
-
-        private void QuantityBtn6_Click(object sender, RoutedEventArgs e)
-        {
-
-            Button tmp = sender as Button;
-            Quantity += tmp.Content;
-        }
-
-        private void QuantityBtn7_Click(object sender, RoutedEventArgs e)
-        {
-
-            Button tmp = sender as Button;
-            Quantity += tmp.Content;
-        }
-
-        private void QuantityBtn8_Click(object sender, RoutedEventArgs e)
-        {
-
-            Button tmp = sender as Button;
-            Quantity += tmp.Content;
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void QuantityReset(object sender, MouseButtonEventArgs e)
         {
             Quantity = "";
         }
 
-        private void CategoryMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Action_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            ListView L = sender as ListView;
-            if (L.SelectedIndex == -1) return;
-
-            SubCategory.Clear();
-            SubMenu.Children.Clear();
-            var db = new res_for_sheratonEntities();
-            //var id = db.ResMainCategoryCodes.Where(it => it.MainCategoryNameA == t.Content).Select(it => it.MainCategoryId).FirstOrDefault();
-            var list = db.ResSubCategoryCodes.Where(i => i.MainCategoryId == L.SelectedIndex+1).ToList();
-            foreach (var item in list)
-            {
-                SubCategory.Add(new Button());
-                SubCategory[SubCategory.Count - 1].Name = "Btn";
-                SubCategory[SubCategory.Count - 1].Content = item.SubCategoryNameA;
-                SubCategory[SubCategory.Count - 1].Width = 100;
-                SubCategory[SubCategory.Count - 1].Height = 100;
-                SubCategory[SubCategory.Count - 1].Margin = new Thickness(5, 5, 0, 0);
-                SubMenu.Children.Add(SubCategory[SubCategory.Count - 1]);
-                SubCategory[SubCategory.Count - 1].Click += new RoutedEventHandler(BtnClick);
-            }
-
-
+            var tmp = (CustomButton)sender;
+            if (tmp.Text == "دفع") ;
+            if (tmp.Text == "دليفري") ;
+            if (tmp.Text == "إلغاء") ;
         }
+
 
 
     }
