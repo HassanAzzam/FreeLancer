@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('ls') {
       steps {
-        sh 'ls "~/Desktop"'
+        sh '''#!/usr/bin/env bash
+ls "~/Desktop"'''
       }
     }
   }
